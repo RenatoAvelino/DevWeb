@@ -1,0 +1,19 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+	padding: 0;
+}
+
+
+body, html {
+	width: 100%;
+}
+
+body {
+	background-image: url("/FrontEnd/sun.png");
+	background-color:rgb(255,245,238);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: 50% 0;
+}
+
