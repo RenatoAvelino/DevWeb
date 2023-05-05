@@ -5,27 +5,52 @@
 	padding: 0;
 }
 
-
 body, html {
 	width: 100%;
+	height: 100%;
+	min-height: 100%;
 	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 17px;
 }
 
-.title{
+#page { position:relative; }
+
+#content { padding-bottom:130px; } /* FOOTER HEIGHT */
+
+#HeaderTitle, header, footer{
 	text-align: center;
 	font-family: Verdana, Arial, Helvetica, sans-serif bold;
 	color: black;
 	text-decoration: none;
 }
 
+header, footer{
+	padding: 10px;
+	box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+	background-color: rgba(255,245,238, 0.5);
+  	opacity: 0.8;
+  	backdrop-filter: blur(5px);
+	width: 100%;
+}
+
+footer { 
+	position:absolute; 
+	bottom: 0px; 
+}
+
 body {
 	background-image: url("/FrontEnd/sun.png");
 	background-color:rgb(255,245,238);
-	background-size: cover;
+	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: 50% 0;
 }
 
+.icon-link {
+	position: absolute;
+	bottom: 0px;
+	right: 20px;
+}
 /*-------------------------Big-Numbers------------------------------*/
 #BigNumbers{
 	float: left;
@@ -48,21 +73,11 @@ body {
 	text-align: center;
 }
 
-.BNTable td{
-	border-right: 1px solid rgba(0, 0, 0, 0.3);
-}
+.BNTable td{ border-right: 1px solid rgba(0, 0, 0, 0.3); }
 
-.BNNumbers{
-	font-size: 35px;
-}
+.BNNumbers{	font-size: 35px; }
 
-.Titles{
-	font-size: 17px;
-}
-
-#BNTitlesFirst{
-	border-left: 1px solid rgba(0, 0, 0, 0.3);
-}
+#BNTitlesFirst{ border-left: 1px solid rgba(0, 0, 0, 0.3);}
 
 /*-------------------------Personal-Info------------------------------*/
 #PersonalInfo{
@@ -86,12 +101,9 @@ body {
 	text-align: left;
 }
 
-.PITable td{
-	border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-}
-.PITitlesFirst{
-	border-top: 1px solid rgba(0, 0, 0, 0.3);
-}
+.PITable td{ border-bottom: 1px solid rgba(0, 0, 0, 0.3); }
+
+.PITitlesFirst{	border-top: 1px solid rgba(0, 0, 0, 0.3); }
 
 /*-------------------------Historic-Forms------------------------------*/
 #HisticForms{
@@ -116,6 +128,4 @@ body {
 	text-align: left;
 }
 
-.HFTable td{
-	border: 1px solid rgba(0, 0, 0, 0.3);
-}
+.HFTable td{ border: 1px solid rgba(0, 0, 0, 0.3); }
