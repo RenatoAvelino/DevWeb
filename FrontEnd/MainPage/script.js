@@ -9,24 +9,24 @@
     lnk.href = '/FrontEnd/MainPage/style/StyleAcessibilidade.css';
 
     // Altera a imagem 
-    img.src = '/FrontEnd/olho-white.png';
-    imgDark.src = '/FrontEnd/sun-white32.png';
+    img.src = '/FrontEnd/Imagens/olho-white.png';
+    imgDark.src = '/FrontEnd/Imagens/sun-white32.png';
 
   } else if (lnk.href.includes('/FrontEnd/MainPage/style/StyleDark.css'))  {
     // Altera a folha de estilo 
     lnk.href = '/FrontEnd/MainPage/style/StyleAcessibilidade.css';
 
     // Altera a imagem 
-    img.src = '/FrontEnd/olho-white.png';
-    imgDark.src = '/FrontEnd/sun-white32.png';
+    img.src = '/FrontEnd/Imagens/olho-white.png';
+    imgDark.src = '/FrontEnd/Imagens/sun-white32.png';
   }
   else {
     // Altera a folha de estilo 
     lnk.href = '/FrontEnd/MainPage/style/StyleLight.css';
 
     // Altera a imagem 
-    img.src = '/FrontEnd/olho.png';
-    imgDark.src = '/FrontEnd/lua-minguante.png';
+    img.src = '/FrontEnd/Imagens/olho.png';
+    imgDark.src = '/FrontEnd/Imagens/lua-minguante.png';
   }
   
 };
@@ -42,23 +42,23 @@ function alterarTema() {
     lnk.href = '/FrontEnd/MainPage/style/StyleDark.css';
 
     // Altera a imagem para 
-    img.src = '/FrontEnd/olho-white.png';
-    imgDark.src = '/FrontEnd/sun-white32.png';
+    img.src = '/FrontEnd/Imagens/olho-white.png';
+    imgDark.src = '/FrontEnd/Imagens/sun-white32.png';
 
   } else if (lnk.href.includes('/FrontEnd/MainPage/style/StyleAcessibilidade.css'))  {
     // Altera a folha de estilo 
     lnk.href = '/FrontEnd/MainPage/style/StyleLight.css';
 
     // Altera a imagem 
-    img.src = '/FrontEnd/olho.png';
-    imgDark.src = '/FrontEnd/lua-minguante.png';
+    img.src = '/FrontEnd/Imagens/olho.png';
+    imgDark.src = '/FrontEnd/Imagens/lua-minguante.png';
   }   else {
     // Altera a folha de estilo 
     lnk.href = '/FrontEnd/MainPage/style/StyleLight.css';
 
     // Altera a imagem 
-    img.src = '/FrontEnd/olho.png';
-    imgDark.src = '/FrontEnd/lua-minguante.png';
+    img.src = '/FrontEnd/Imagens/olho.png';
+    imgDark.src = '/FrontEnd/Imagens/lua-minguante.png';
 
   }
 };
