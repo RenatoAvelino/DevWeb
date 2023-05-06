@@ -13,9 +13,12 @@
     <!--
       =================ESPECIFICO=================
     //-->
+    <link rel="stylesheet" type="text/css" href="/FrontEnd/LoginPage/style/StyleLight.css">
+
+    <script src="script.js"></script>
 
     
-    <title>Relatórios</title>
+    <title>Login</title>
     </head>
     <body>
         <header>
@@ -26,7 +29,16 @@
             </h1>
         </header>
 
-        <h1>Não Implementado ainda mas com o esquelo padrão </h1>
+        <div id="FormLog">
+            <form action="script.js" method="POST">
+                <label for="uname">Usuário:</label><br>
+                <input type="text" id="uname" name="uname" placeholder="Username" required><br>
+                <label for="passw">Senha:</label><br>
+                <input type="password" id="passw" name="passw" placeholder="Password" required><br><br>
+                <button type="submit" id="ClickLog">Login</button><br><br>
+                <button type="submit" id="ForgotPassword">Esqueceu a senha?</button>
+            </form>
+        </div>
 
         <footer>
             FakeSolar | Telefone: +55 11 91234-5678 | Email: fakesolar@gmail.com 
