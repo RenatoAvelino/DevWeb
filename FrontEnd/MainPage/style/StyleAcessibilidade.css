@@ -1,0 +1,139 @@
+/*-------------------------General----------------------------------*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+	padding: 0;
+}
+
+body, html {
+	width: 100%;
+	height: 100%;
+	min-height: 100%;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 23px;
+	color: white;
+}
+
+#page { position:relative; }
+
+#content { padding-bottom:130px; } /* FOOTER HEIGHT */
+
+#HeaderTitle, header, footer{
+	text-align: center;
+	font-family: Verdana, Arial, Helvetica, sans-serif bold;
+	color: white;
+	text-decoration: none;
+}
+
+header, footer{
+	padding: 10px;
+	box-shadow: 0 0 30px rgba(255,245,238, 0.5);
+	background-color: rgba(0, 0, 0, 0.3);
+  	opacity: 0.95;
+  	backdrop-filter: blur(5px);
+	width: 100%;
+}
+
+footer {  
+	bottom: 0px; 
+	box-shadow: 0 0 20px rgba(255,245,238, 0.5);
+}
+
+body {
+	background-image: url("/FrontEnd/sun-white.png");
+	background-color:black;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: 50% 0;
+	opacity: 1;
+}
+
+#acessibilidade-imagem {
+	position: absolute;
+	bottom: 10px;
+	right: 20px;
+}
+
+#dark-light{
+	position: absolute;
+	bottom: 10px;
+	left: 20px;
+}
+/*-------------------------Big-Numbers------------------------------*/
+#BigNumbers{
+	float: left;
+	margin-left: 10px;
+	margin-top: 10px;
+	width: 60%;
+	padding: 10px;
+}
+
+.BNTable {
+	width: 100%;
+	border-collapse: separate;
+  	border-spacing: 0px;
+	margin: 0 auto;
+	padding: 43px;
+	box-shadow: 0 0 10px rgba(255,245,238, 0.5);
+	background-color: rgba(0, 0, 0, 0.3);
+  	opacity: 0.95;
+  	backdrop-filter: blur(5px);
+	text-align: center;
+}
+
+.BNTable td{ border-right: 1px solid rgba(255,245,238, 0.5);}
+
+.BNNumbers{	font-size: 40px; }
+
+#BNTitlesFirst{ border-left: 1px solid rgba(255,245,238, 0.5);}
+
+/*-------------------------Personal-Info------------------------------*/
+#PersonalInfo{
+	float: right;
+	margin-right: 10px;
+	margin-top: 10px;
+	width: 38%;
+	padding: 10px;
+}
+
+.PITable {
+	width: 100%;
+	border-collapse: separate;
+  	border-spacing: 0px;
+	margin: 0 auto;
+	padding: 20px;
+	box-shadow: 0 0 10px rgba(255,245,238, 0.5); 
+	background-color: rgba(0, 0, 0, 0.3);
+  	opacity: 0.95;
+  	backdrop-filter: blur(5px);
+	text-align: left;
+}
+
+.PITable td{ border-bottom: 1px solid rgba(255,245,238, 0.5); }
+
+.PITitlesFirst{	border-top: 1px solid rgba(255,245,238, 0.5); }
+
+/*-------------------------Historic-Forms------------------------------*/
+#HisticForms{
+	clear: both;
+    margin-left: 10px;
+	margin-right: 10px;
+    margin-top: 10px;
+    width: 99%;
+    padding: 10px;
+}
+
+.HFTable {
+	width: 100%;
+	border-collapse: separate;
+  	border-spacing: 0px;
+	margin: 0 auto;
+	padding: 20px;
+	box-shadow: 0 0 10px rgba(255,245,238, 0.5); 
+	background-color: rgba(0, 0, 0, 0.3);
+  	opacity: 1;
+  	backdrop-filter: blur(5px);
+	text-align: left;
+}
+
+.HFTable td{ border: 1px solid rgba(255,245,238, 0.5);   }

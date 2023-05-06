@@ -11,6 +11,7 @@ body, html {
 	min-height: 100%;
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: 17px;
+	color: white;
 }
 
 #page { position:relative; }
@@ -20,36 +21,44 @@ body, html {
 #HeaderTitle, header, footer{
 	text-align: center;
 	font-family: Verdana, Arial, Helvetica, sans-serif bold;
-	color: black;
+	color: white;
 	text-decoration: none;
 }
 
 header, footer{
 	padding: 10px;
-	box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
-	background-color: rgba(255,245,238, 0.5);
+	box-shadow: 0 0 30px rgba(255,245,238, 0.5);
+	background-color: rgba(0, 0, 0, 0.3);
   	opacity: 0.8;
   	backdrop-filter: blur(5px);
 	width: 100%;
 }
 
-footer { 
-	position:absolute; 
+footer {  
+    position:absolute; 
 	bottom: 0px; 
+	box-shadow: 0 0 20px rgba(255,245,238, 0.5);
 }
 
 body {
-	background-image: url("/FrontEnd/sun.png");
-	background-color:rgb(255,245,238);
+	background-image: url("/FrontEnd/sun-white.png");
+	background-color:black;
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: 50% 0;
+	opacity: 1;
 }
 
-.icon-link {
+#acessibilidade-imagem {
 	position: absolute;
-	bottom: 0px;
+	bottom: 5px;
 	right: 20px;
+}
+
+#dark-light{
+	position: absolute;
+	bottom: 5px;
+	left: 20px;
 }
 /*-------------------------Big-Numbers------------------------------*/
 #BigNumbers{
@@ -66,18 +75,18 @@ body {
   	border-spacing: 0px;
 	margin: 0 auto;
 	padding: 33px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-	background-color: rgba(255,245,238, 0.5);
+	box-shadow: 0 0 10px rgba(255,245,238, 0.5);
+	background-color: rgba(0, 0, 0, 0.3);
   	opacity: 0.8;
   	backdrop-filter: blur(5px);
 	text-align: center;
 }
 
-.BNTable td{ border-right: 1px solid rgba(0, 0, 0, 0.3); }
+.BNTable td{ border-right: 1px solid rgba(255,245,238, 0.5);}
 
 .BNNumbers{	font-size: 35px; }
 
-#BNTitlesFirst{ border-left: 1px solid rgba(0, 0, 0, 0.3);}
+#BNTitlesFirst{ border-left: 1px solid rgba(255,245,238, 0.5);}
 
 /*-------------------------Personal-Info------------------------------*/
 #PersonalInfo{
@@ -94,16 +103,16 @@ body {
   	border-spacing: 0px;
 	margin: 0 auto;
 	padding: 20px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-	background-color: rgba(255,245,238, 0.5);
+	box-shadow: 0 0 10px rgba(255,245,238, 0.5); 
+	background-color: rgba(0, 0, 0, 0.3);
   	opacity: 0.8;
   	backdrop-filter: blur(5px);
 	text-align: left;
 }
 
-.PITable td{ border-bottom: 1px solid rgba(0, 0, 0, 0.3); }
+.PITable td{ border-bottom: 1px solid rgba(255,245,238, 0.5); }
 
-.PITitlesFirst{	border-top: 1px solid rgba(0, 0, 0, 0.3); }
+.PITitlesFirst{	border-top: 1px solid rgba(255,245,238, 0.5); }
 
 /*-------------------------Historic-Forms------------------------------*/
 #HisticForms{
@@ -121,11 +130,11 @@ body {
   	border-spacing: 0px;
 	margin: 0 auto;
 	padding: 20px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-	background-color: rgba(255,245,238, 0.5);
+	box-shadow: 0 0 10px rgba(255,245,238, 0.5); 
+	background-color: rgba(0, 0, 0, 0.3);
   	opacity: 0.8;
   	backdrop-filter: blur(5px);
 	text-align: left;
 }
 
-.HFTable td{ border: 1px solid rgba(0, 0, 0, 0.3); }
+.HFTable td{ border: 1px solid rgba(255,245,238, 0.5);   }

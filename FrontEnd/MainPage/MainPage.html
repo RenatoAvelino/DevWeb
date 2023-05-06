@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/x-icon" href="/FrontEnd/sun32.ico">
 
-    <link rel="stylesheet" type="text/css" href="style/MPStyle1.css">
+    <link rel="stylesheet" type="text/css" href="/FrontEnd/MainPage/style/StyleLight.css" id="css">
+
+    <script src="script.js";></script>
+    
     <title>Follow The Solar</title>
   </head>
   <body>
     <header>
       <h1>
-        <a href="/FrontEnd/MainPage.html" id="HeaderTitle">
+        <a href="/FrontEnd/MainPage/MainPage.html" id="HeaderTitle">
           Follow The Solar | Portal
         </a> 
       </h1>
@@ -153,15 +156,16 @@
       </tr>
       </table>
     </div>
+
+    <br>
+
     <footer>
       FakeSolar | Telefone FakeSolar: +55 11 91234-5678 | Email FakeSolar fakesolar@gmail.com 
 
-      <div class="icon-link">
-        <a href="NaoFeitoAinda.html">
-          <img src="/FrontEnd/olho.png" alt="Ativar Modo de Acessibilidade visual">
-        </a>
-      </div>
-      
-    </footer>
+      <img src="/FrontEnd/olho.png" alt="Ativar Modo de Acessibilidade visual" onclick="alterarAcessibilidade()" id="acessibilidade-imagem">
+
+      <img src="/FrontEnd/lua-minguante.png" alt="Ativar Modo Dark" onclick="alterarTema()" id="dark-light">
+     </footer>
+
   </body>
 </html>
