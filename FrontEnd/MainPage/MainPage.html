@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--
+      ----------------------PADRONIZADO----------------------
+    -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/x-icon" href="/FrontEnd/Imagens/sun32.ico">
+    <link rel="stylesheet" type="text/css" href="/FrontEnd/GeneralStyles/StyleLight.css" id="css">
+    <script src="/FrontEnd/GeneralScript.js";></script>
+
+    <!--
+      ----------------------ESPECIFICO----------------------
+    -->
+    <link rel="stylesheet" type="text/css" href="/FrontEnd/MainPage/style/StyleLight.css">
+
+    <script src="script.js";></script>
+    
+    <title>Follow The Solar</title>
+  </head>
+  <body>
+    <header>
+      <h1>
+        <a href="/FrontEnd/MainPage/MainPage.html" id="HeaderTitle">
+          Follow The Solar | Portal
+        </a> 
+      </h1>
+    </header>
+    <div id="BigNumbers">
+      <h2>Big Numbers</h2>
+      <h3><a href="/FrontEnd/RelatoriosPage/RelatoriosPage.html">Ver relatório completo</a></h3>
+      <table class="BNTable">
+        <tr>
+            <td id="BNTitlesFirst">
+              <p>Geração Mensal(KWh)</p>
+            </td>
+            <td>
+              <p>Total economizado(R$)</p> 
+            </td>
+            <td>
+              <p>Unidades com abatimento de conta(und)</p>
+            </td>
+            <td>
+              <p>Número de solicitações enviadas para empresa(und)</p>
+            </td>
+            <tr>
+              <td id="BNTitlesFirst">
+                <p class="BNNumbers">157,83 </p>
+              </td>
+              <td> 
+                <p class="BNNumbers">R$200,00</p>
+              </td>
+              <td>
+                <p class="BNNumbers">2</p>
+              </td>
+              <td>
+                <p class="BNNumbers">5</p>
+              </td>
+          </tr>
+        </tr>
+      </table>
+    </div>  
+    <div id="PersonalInfo">
+      <h2>Dados pessoais</h2>
+      <h3><a href="/FrontEnd/NaoFeitoAinda.html">Ver preferencias e dados completos</a></h3>
+      <table class="PITable">
+        <tr>
+            <td class="PITitlesFirst">
+              <strong>Nome completo: </strong>
+            </td >
+            <td class="PITitlesFirst">
+              <p>Vinícius Rebouças Cortêz</p>
+            </td>
+        </tr>
+        <tr>
+          <td>
+            <strong>Número de contato: </strong>
+          </td>
+          <td>
+            <p>085 90000-0000</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <strong>CPF: </strong>
+          </td>
+          <td>
+            <p>111.111.111-11</p>
+          </td>
+        </tr>
+        <tr>
+          <td rowspan="2" >
+            <strong>Endereço: </strong>
+          </td>
+          <td rowspan="2">
+            <p>Rua A, Numero 0, Bairro B, CEP 111-11</p>
+          </td>
+        </tr>
+
+        
+      </table>
+    </div>  
+    <div id="HisticForms">
+      <h2>Últimos Formularios enviados para empresa</h2>
+      <h3><a href="/FrontEnd/NaoFeitoAinda.html">Ver historico completo</a></h3>
+      <table class="HFTable">
+        <tr>
+          <td>
+            <strong>Id:</strong>
+          </td>
+          <td>
+            <strong >Data:</strong>
+          </td>
+          <td>
+            <strong >Tópico:</strong>
+          </td>
+          <td>
+            <strong>Status:</strong>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>3</p>
+          </td>
+          <td>
+            <p>05/05/2023</p> 
+          </td>
+          <td>
+            <p>Reparo de Modulo</p>
+          </td>
+          <td>
+            <p>Em Andamento</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>2</p>
+          </td>
+          <td>
+            <p>01/05/2023</p>
+          </td>
+          <td>
+            <p>Mudança de Endereço de RF</p>
+          </td>
+          <td>
+            <p>Concluída</p>
+          </td>
+        </tr>
+      </tr>
+      <tr>
+        <td>
+          <p>1</p>
+        </td>
+        <td>
+          <p>01/10/2022</p>
+        </td>
+        <td>
+          <p>Erro na Fatura</p>
+        </td>
+        <td>
+          <p>Aberta</p>
+        </td>
+      </tr>
+      </table>
+    </div>
+
+    <br>
+
+    <footer>
+      FakeSolar | Telefone: +55 11 91234-5678 | Email: fakesolar@gmail.com 
+
+      <img src="/FrontEnd/Imagens/olho.png" alt="Ativar Modo de Acessibilidade visual" onclick="alterarAcessibilidade()" id="acessibilidade-imagem">
+
+      <img src="/FrontEnd/Imagens/lua-minguante.png" alt="Ativar Modo Dark" onclick="alterarTema()" id="dark-light">
+     </footer>
+
+  </body>
+</html>
