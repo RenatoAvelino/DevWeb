@@ -1,28 +1,35 @@
 function alterarAcessibilidade() {
-    const lnk = document.getElementById('css');
+    //const lnk = document.getElementById('css');
+    const links = document.querySelectorAll('link[href*=".css"]');
     const img = document.getElementById('acessibilidade-imagem');
     const imgDark = document.getElementById('dark-light');
   
   
-    if (lnk.href.includes('/FrontEnd/GeneralStyles/StyleLight.css'))  {
+    if (links[0].href.includes("StyleLight.css"))  {
       // Altera a folha de estilo 
-      lnk.href = '/FrontEnd/GeneralStyles/StyleAcessibilidade.css';
+      links.forEach((link) => {
+        link.href = link.href.replace('/StyleLight.css', '/StyleAcessibilidade.css');
+      });
   
       // Altera a imagem 
       img.src = '/FrontEnd/Imagens/olho-white.png';
       imgDark.src = '/FrontEnd/Imagens/sun-white32.png';
   
-    } else if (lnk.href.includes('/FrontEnd/GeneralStyles/StyleDark.css'))  {
+    } else if (links[0].href.includes("StyleDark.css"))  {
       // Altera a folha de estilo 
-      lnk.href = '/FrontEnd/GeneralStyles/StyleAcessibilidade.css';
+      links.forEach((link) => {
+        link.href = link.href.replace('/StyleDark.css', '/StyleAcessibilidade.css');
+      });
   
       // Altera a imagem 
       img.src = '/FrontEnd/Imagens/olho-white.png';
       imgDark.src = '/FrontEnd/Imagens/sun-white32.png';
     }
-    else {
+    else if (links[0].href.includes("StyleAcessibilidade.css")){
       // Altera a folha de estilo 
-      lnk.href = '/FrontEnd/GeneralStyles/StyleLight.css';
+      links.forEach((link) => {
+        link.href = link.href.replace('/StyleAcessibilidade.css', '/StyleLight.css');
+      });
   
       // Altera a imagem 
       img.src = '/FrontEnd/Imagens/olho.png';
@@ -32,29 +39,35 @@ function alterarAcessibilidade() {
   };
   
   function alterarTema() {
-    const lnk = document.getElementById('css');
+    const links = document.querySelectorAll('link[href*=".css"]');
     const img = document.getElementById('acessibilidade-imagem');
     const imgDark = document.getElementById('dark-light');
   
   
-    if (lnk.href.includes('/FrontEnd/GeneralStyles/StyleLight.css'))  {
+    if (links[0].href.includes("StyleLight.css"))  {
       // Altera a folha de estilo 
-      lnk.href = '/FrontEnd/GeneralStyles/StyleDark.css';
+      links.forEach((link) => {
+        link.href = link.href.replace('/StyleLight.css', '/StyleDark.css');
+      });
   
       // Altera a imagem para 
       img.src = '/FrontEnd/Imagens/olho-white.png';
       imgDark.src = '/FrontEnd/Imagens/sun-white32.png';
   
-    } else if (lnk.href.includes('/FrontEnd/GeneralStyles/StyleAcessibilidade.css'))  {
+    } else if (links[0].href.includes("StyleAcessibilidade.css"))  {
       // Altera a folha de estilo 
-      lnk.href = '/FrontEnd/GeneralStyles/StyleLight.css';
+      links.forEach((link) => {
+        link.href = link.href.replace('/StyleAcessibilidade.css', '/StyleLight.css');
+      })
   
       // Altera a imagem 
       img.src = '/FrontEnd/Imagens/olho.png';
       imgDark.src = '/FrontEnd/Imagens/lua-minguante.png';
-    }   else {
+    }   else if (links[0].href.includes("StyleDark.css")) {
       // Altera a folha de estilo 
-      lnk.href = '/FrontEnd/GeneralStyles/StyleLight.css';
+      links.forEach((link) => {
+        link.href = link.href.replace('/StyleDark.css', '/StyleLight.css');
+      })
   
       // Altera a imagem 
       img.src = '/FrontEnd/Imagens/olho.png';
