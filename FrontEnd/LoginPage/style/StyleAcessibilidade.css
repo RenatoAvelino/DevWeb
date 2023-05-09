@@ -45,6 +45,6 @@ footer {
 	  display: inline-block;
 	  position: relative;
 	  left: 50%;
-	  transform: translateY(-0%) translateX(-33.33%);
+	  transform: translateY(-0%) translateX(-40%);
 	  width: 66.66%;
   }
