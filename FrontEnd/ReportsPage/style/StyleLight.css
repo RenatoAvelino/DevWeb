@@ -1,0 +1,65 @@
+footer {  
+	position:relative; 
+	bottom: 0px; 
+	box-shadow: 0 0 20px rgba(255,245,238, 0.5);
+}
+
+
+/*-------------------------Geracao------------------------------*/
+/*-------------------------InfoSytem------------------------------*/
+#InfoSytem{
+	float: left;
+	margin-left: 10px;
+	margin-top: 10px;
+	width: 70%;
+	padding: 10px;
+}
+
+.ISTable, .EndTable, .ASTable {
+	width: 100%;
+	border-collapse: separate;
+  	border-spacing: 0px;
+	margin: 0 auto;
+	padding: 33px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+	background-color: rgba(255,245,238, 0.5);
+  	opacity: 0.8;
+  	backdrop-filter: blur(5px);
+	text-align: left;
+}
+
+.ISTable td{ border: 1px solid rgba(0, 0, 0, 0.3); }
+
+.ISNumbers{	font-size: 35px; }
+
+#ISTitlesFirst{ 
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+/*-------------------------Lista Endereços------------------------------*/
+#EndTable{
+    float: right;
+    margin-right: 30px;
+    margin-top: 10px;
+    padding: 0;
+    width: 25%;
+}
+
+.EndTable td{ border: 1px solid rgba(0, 0, 0, 0.3);}
+
+/*-------------------------Impacto Ambiental------------------------------*/
+#AmbSoc{
+	clear: both;
+    margin-left: 10px;
+	margin-right: 10px;
+    margin-top: 10px;
+    width: 99%;
+    padding: 10px;
+}
+
+
+.Numbers{
+    font-size: 35px;
+}
+

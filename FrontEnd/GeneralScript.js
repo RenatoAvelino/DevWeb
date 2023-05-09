@@ -14,7 +14,6 @@ function alterarAcessibilidade() {
       // Altera a imagem 
       img.src = '/FrontEnd/Imagens/olho-white.png';
       imgDark.src = '/FrontEnd/Imagens/sun-white32.png';
-  
     } else if (links[0].href.includes("StyleDark.css"))  {
       // Altera a folha de estilo 
       links.forEach((link) => {
@@ -72,6 +71,5 @@ function alterarAcessibilidade() {
       // Altera a imagem 
       img.src = '/FrontEnd/Imagens/olho.png';
       imgDark.src = '/FrontEnd/Imagens/lua-minguante.png';
-  
     }
   };  
