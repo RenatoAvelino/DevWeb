@@ -36,7 +36,7 @@ header, footer{
 footer { 
 	position:absolute; 
 	bottom: 0px; 
-	box-shadow: 0 0 20px rgba(255,245,238, 0.5);
+	box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
 }
 
 body {
