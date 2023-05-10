@@ -29,8 +29,66 @@
 
         <div id="Geracao">
             <h2>Dados de Geração</h2>
-            <p>Grafico de capacidade de geracao ao longo do tempo escolhido</p>
-            <p>Grafico de rentabilidade gerado ao longo do tempo escolhido</p>
+            <div id="FormLog">
+              <form action="script.js" method="POST">
+                <div class="campo-data">
+                  <label for="de">De:</label>
+                  <input type="date" id="de" name="de" placeholder="DD/MM/AAAA" required>
+                </div>
+                <div class="campo-data">
+                  <label for="ate">Até:</label>
+                  <input type="date" id="ate" name="ate" placeholder="DD/MM/AAAA" required>
+                </div>
+                <button type="submit" id="Filtrar">Filtrar</button>
+              </form>
+            </div>
+
+            <div id="Container">
+              <div id="Graf">
+                <img src="/FrontEnd/Imagens/Geração.png" alt="Gráfico de Geração">
+              </div>
+            
+              <div id="SideNumers">
+                <div id="GerNum">
+                  <h2 class="SideTitle">Geração</h2>
+                  <table class="GNTable">
+                    <tr>
+                      <td>
+                        <p>Energia Gerada no Período (KWh):</p>
+                      </td>
+                      <td>
+                        <p>Valor abatido no Período (R$)</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="Numbers">
+                        <strong>137.7,71</strong>
+                      </td>
+                      <td class="Numbers">
+                        <strong>8,95</strong>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                
+                <div id="EndTable">
+                  <h2 class="SideTitle">Lista ordenada de Endereços de Abatimento</h2>
+                  <table class="EndTable">
+                      <tr>
+                          <td><p>Rua A, Numero 0, Bairro B, CEP 111-11</p></td>
+                      </tr>
+                      <tr>
+                          <td><p>Rua C, Numero 2, Bairro D, CEP 333-33</p></td>
+                      </tr>
+                      <tr>
+                          <td><p>Rua E, Numero 4, Bairro F, CEP 555-55</p></td>
+                      </tr>
+                  </table>
+              </div>
+              </div>
+              </div>
+              
+            
         </div>
 
         <div id="InfoSytem">
@@ -111,21 +169,6 @@
                     </td>
                 </tr>
               </table>
-        </div>
-
-        <div id="EndTable">
-            <h2>Lista ordenada de Endereços de Abatimento</h2>
-            <table class="EndTable">
-                <tr>
-                    <td><p>Rua A, Numero 0, Bairro B, CEP 111-11</p></td>
-                </tr>
-                <tr>
-                    <td><p>Rua C, Numero 2, Bairro D, CEP 333-33</p></td>
-                </tr>
-                <tr>
-                    <td><p>Rua E, Numero 4, Bairro F, CEP 555-55</p></td>
-                </tr>
-            </table>
         </div>
 
         <div id="AmbSoc">

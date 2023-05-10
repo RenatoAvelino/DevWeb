@@ -6,16 +6,98 @@ footer {
 
 
 /*-------------------------Geracao------------------------------*/
+#FormLog {
+	width: 40%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+	background-color: rgba(255, 245, 238, 0.5);
+	opacity: 1;
+	backdrop-filter: blur(5px);
+	position: relative;
+  }
+  
+  form {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+  }
+  
+  .campo-data {
+	display: flex;
+	align-items: center;
+  }
+  
+  label, input, button {
+	margin-right: 8px;
+  }
+  
+  input[type=date] {
+	padding: 12px 20px;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+  }
+  
+  button {
+	background-color: #E99347;
+	color: white;
+	padding: 14px 20px;
+	border: none;
+	cursor: pointer;
+  }
+
+  #Container {
+	display: flex;
+  }
+  
+  #Graf {
+	flex: 70%;
+	text-align: left;
+	margin-top: 20px;
+  }
+  
+  #SideNumbers{
+	flex: 30%;
+	margin-left: 20px;
+  }
+  
+  #Graf img {
+	width: 100%;
+	max-width: 843px;
+	height: auto;
+  }
+
+  .GNTable , .EndTable{
+	width: 90%;
+	border-collapse: separate;
+  	border-spacing: 0px;
+	margin: 0 auto;
+	padding: 33px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+	background-color: rgba(255,245,238, 0.5);
+  	opacity: 0.8;
+  	backdrop-filter: blur(5px);
+	text-align: left;
+}
+
+.SideTitle{ 
+	margin: 0 auto;
+	padding: 10px;
+}
+
 /*-------------------------InfoSytem------------------------------*/
 #InfoSytem{
 	float: left;
 	margin-left: 10px;
 	margin-top: 10px;
-	width: 70%;
+	width: 100%;
 	padding: 10px;
 }
 
-.ISTable, .EndTable, .ASTable {
+.ISTable, .ASTable{
 	width: 100%;
 	border-collapse: separate;
   	border-spacing: 0px;
@@ -38,13 +120,6 @@ footer {
 }
 
 /*-------------------------Lista Endereços------------------------------*/
-#EndTable{
-    float: right;
-    margin-right: 30px;
-    margin-top: 10px;
-    padding: 0;
-    width: 25%;
-}
 
 .EndTable td{ border: 1px solid rgba(0, 0, 0, 0.3);}
 
