@@ -1,23 +1,24 @@
 <!DOCTYPE html>
-<html>
-        <!--
-      ----------------------PADRONIZADO----------------------
-    -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+<html lang="pt-br">
+  <head>
+    <!--
+      =================PADRONIZADO=================
+    //-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
     <link rel="icon" type="image/x-icon" href="/FrontEnd/Imagens/sun32.ico">
     <link rel="stylesheet" type="text/css" href="/FrontEnd/GeneralStyles/StyleLight.css" id="css">
-    <script src="/FrontEnd/GeneralScript.js";></script>
+    <script src="/FrontEnd/GeneralScript.js"></script>
 
     <!--
-      ----------------------ESPECIFICO----------------------
-    -->
+      =================ESPECIFICO=================
+    //-->
     <link rel="stylesheet" type="text/css" href="/FrontEnd/ReportsPage/style/StyleLight.css">
 
-    <script src="script.js";></script>
+    <script src="script.js"></script>
     
     <title>Relatórios</title>
-    </head>
+</head>
     <body>
         <header>
             <h1>
@@ -33,11 +34,11 @@
               <form action="script.js" method="POST">
                 <div class="campo-data">
                   <label for="de">De:</label>
-                  <input type="date" id="de" name="de" placeholder="DD/MM/AAAA" required>
+                  <input type="text" id="de" name="de" placeholder="MM/DD/YYYY" onfocus="(this.type='date')" onblur="(this.type='text')" required>
                 </div>
                 <div class="campo-data">
                   <label for="ate">Até:</label>
-                  <input type="date" id="ate" name="ate" placeholder="DD/MM/AAAA" required>
+                  <input type="text" id="ate" name="ate" placeholder="MM/DD/YYYY" onfocus="(this.type='date')" onblur="(this.type='text')" required>
                 </div>
                 <button type="submit" id="Filtrar">Filtrar</button>
               </form>
@@ -132,7 +133,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td id="ISTitlesFirst" colspan="2">
+                    <td id="ISTitlesFirst2" colspan="2">
                       <p><strong>Sistema 02</strong></p>
                     </td>
                 </tr>
@@ -213,7 +214,7 @@
         <footer>
             FakeSolar | Telefone: +55 11 91234-5678 | Email: fakesolar@gmail.com 
     
-            <img src="/FrontEnd/Imagens/olho.png" alt="Ativar Modo de Acessibilidade visual" onclick="alterarAcessibilidade(); alterarImagens()"id="acessibilidade-imagem">
+            <img src="/FrontEnd/Imagens/olho.png" alt="Ativar Modo de Acessibilidade visual" onclick="alterarAcessibilidade()" id="acessibilidade-imagem">
     
             <img src="/FrontEnd/Imagens/lua-minguante.png" alt="Ativar Modo Dark" onclick="alterarTema(); alterarImagens()" id="dark-light">
         </footer>
