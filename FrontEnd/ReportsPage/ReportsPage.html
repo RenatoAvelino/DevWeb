@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+        <!--
+      ----------------------PADRONIZADO----------------------
+    -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/x-icon" href="/FrontEnd/Imagens/sun32.ico">
+    <link rel="stylesheet" type="text/css" href="/FrontEnd/GeneralStyles/StyleLight.css" id="css">
+    <script src="/FrontEnd/GeneralScript.js";></script>
+
+    <!--
+      ----------------------ESPECIFICO----------------------
+    -->
+    <link rel="stylesheet" type="text/css" href="/FrontEnd/ReportsPage/style/StyleLight.css">
+
+    <script src="script.js";></script>
+    
+    <title>Relatórios</title>
+    </head>
+    <body>
+        <header>
+            <h1>
+                <a href="/FrontEnd/MainPage/MainPage.html" id="HeaderTitle">
+                Follow The Solar | Portal
+                </a> 
+            </h1>
+        </header>
+
+        <div id="Geracao">
+            <h2>Dados de Geração</h2>
+            <div id="FormLog">
+              <form action="script.js" method="POST">
+                <div class="campo-data">
+                  <label for="de">De:</label>
+                  <input type="date" id="de" name="de" placeholder="DD/MM/AAAA" required>
+                </div>
+                <div class="campo-data">
+                  <label for="ate">Até:</label>
+                  <input type="date" id="ate" name="ate" placeholder="DD/MM/AAAA" required>
+                </div>
+                <button type="submit" id="Filtrar">Filtrar</button>
+              </form>
+            </div>
+
+            <div id="Container">
+              <div id="Graf">
+                <img src="/FrontEnd/Imagens/Geração.png" alt="Gráfico de Geração">
+              </div>
+            
+              <div id="SideNumers">
+                <div id="GerNum">
+                  <h2 class="SideTitle">Geração</h2>
+                  <table class="GNTable">
+                    <tr>
+                      <td>
+                        <p>Energia Gerada no Período (KWh):</p>
+                      </td>
+                      <td>
+                        <p>Valor abatido no Período (R$)</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="Numbers">
+                        <strong>137.7,71</strong>
+                      </td>
+                      <td class="Numbers">
+                        <strong>8,95</strong>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                
+                <div id="EndTable">
+                  <h2 class="SideTitle">Lista ordenada de Endereços de Abatimento</h2>
+                  <table class="EndTable">
+                      <tr>
+                          <td><p>Rua A, Numero 0, Bairro B, CEP 111-11</p></td>
+                      </tr>
+                      <tr>
+                          <td><p>Rua C, Numero 2, Bairro D, CEP 333-33</p></td>
+                      </tr>
+                      <tr>
+                          <td><p>Rua E, Numero 4, Bairro F, CEP 555-55</p></td>
+                      </tr>
+                  </table>
+              </div>
+              </div>
+              </div>
+              
+            
+        </div>
+
+        <div id="InfoSytem">
+            <h2>Informações do Sistema</h2>
+            <table class="ISTable">
+                <tr>
+                    <td id="ISTitlesFirst" colspan="2">
+                      <p><strong>Sistema 01</strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                      <p><strong>Número de Série:</strong></p> 
+                    </td>
+                    <td>
+                      <p>01X02</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                      <p><strong>Potência de Saída Média:</strong></p> 
+                    </td>
+                    <td>
+                      <p>1,383KW</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                      <p><strong>Número de Placas:</strong></p> 
+                    </td>
+                    <td>
+                      <p>8</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                      <p><strong>Endereço de Geração:</strong></p> 
+                    </td>
+                    <td>
+                      <p>Rua A, Numero 0, Bairro B, CEP 111-11</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="ISTitlesFirst" colspan="2">
+                      <p><strong>Sistema 02</strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                      <p><strong>Número de Série:</strong></p> 
+                    </td>
+                    <td>
+                      <p>03X04</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                      <p><strong>Potência de Saída Média:</strong></p> 
+                    </td>
+                    <td>
+                      <p>1,490KW</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                      <p><strong>Número de Placas:</strong></p> 
+                    </td>
+                    <td>
+                      <p>10</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                      <p><strong>Endereço de Geração:</strong></p> 
+                    </td>
+                    <td>
+                      <p>Rua C, Numero 2, Bairro D, CEP 333-33</p>
+                    </td>
+                </tr>
+              </table>
+        </div>
+
+        <div id="AmbSoc">
+            <h2>Impacto Ambiental Social</h2>
+            <table class="ASTable">
+                <tr>
+                    <td>
+                        <img src="/FrontEnd/Imagens/coal60.png" alt="Carvão" class="AmbSoc">
+                    </td>
+                    <td>
+                        <img src="/FrontEnd/Imagens/oaktree60.png" alt="Arvore" class="AmbSoc">
+                    </td>
+                    <td>
+                        <img src="/FrontEnd/Imagens/gas64.png" alt="Fabrica" class="AmbSoc">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Carvão poupado(KG):</p>
+                    </td>
+                    <td>
+                        <p>Quantidade equivalente de Árvores Plantadas:</p>
+                    </td>
+                    <td>
+                        <p>Quantidade de CO<sub>2</sub> Reduzido(KG):</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="Numbers">
+                        <strong>1180</strong>
+                    </td>
+                    <td class="Numbers">
+                        <strong>161</strong>
+                    </td>
+                    <td class="Numbers">
+                        <strong>2950</strong>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <footer>
+            FakeSolar | Telefone: +55 11 91234-5678 | Email: fakesolar@gmail.com 
+    
+            <img src="/FrontEnd/Imagens/olho.png" alt="Ativar Modo de Acessibilidade visual" onclick="alterarAcessibilidade(); alterarImagens()"id="acessibilidade-imagem">
+    
+            <img src="/FrontEnd/Imagens/lua-minguante.png" alt="Ativar Modo Dark" onclick="alterarTema(); alterarImagens()" id="dark-light">
+        </footer>
+        
+    </body>
+</html>
