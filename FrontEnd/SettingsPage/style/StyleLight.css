@@ -1,0 +1,56 @@
+/*-------------------------Personal-Info------------------------------*/
+#PersonalInfo{
+    width: 50%;
+    height: auto;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateY(-50%) translateX(-50%);
+}
+
+.PITable {
+	width: 100%;
+	border-collapse: separate;
+  	border-spacing: 0px;
+	margin: 0 auto;
+	padding: 20px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+	background-color: rgba(255,245,238, 0.5);
+  	opacity: 0.8;
+  	backdrop-filter: blur(5px);
+	text-align: left;
+}
+
+.PITable td{ border-bottom: 1px solid rgba(0, 0, 0, 0.3); }
+
+.PITitlesFirst{	
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+button {
+    color: white;
+    border: none;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	width: 66.66%;
+  }
+  
+#edit, #delete{
+    width: 15%;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+}
+
+#edit{
+    background-color: #E99347;
+    float: left;
+}
+
+#delete{
+    background-color: #E84629;
+    float: right;
+}

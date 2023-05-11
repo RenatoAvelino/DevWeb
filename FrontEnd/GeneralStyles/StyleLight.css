@@ -51,10 +51,12 @@ body {
 	position: absolute;
 	bottom: 5px;
 	right: 20px;
+	cursor: pointer;
 }
 
 #dark-light{
 	position: absolute;
 	bottom: 5px;
 	left: 20px;
+	cursor: pointer;
 }
