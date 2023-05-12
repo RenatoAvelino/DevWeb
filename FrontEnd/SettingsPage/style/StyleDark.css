@@ -1,0 +1,84 @@
+/*-------------------------Personal-Info------------------------------*/
+#PersonalInfo{
+    width: 50% auto;
+    height: auto;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateY(-50%) translateX(-50%);
+}
+
+.PITable {
+	width: 100%;
+	border-collapse: separate;
+  	border-spacing: 0px;
+	margin: 0 auto;
+	padding: 20px;
+	box-shadow: 0 0 10px rgba(255,245,238, 0.5);
+	background-color: rgba(0, 0, 0, 0.3);
+	border-radius: 15px;
+  	opacity: 0.8;
+  	backdrop-filter: blur(5px);
+	text-align: left;
+}
+
+.PITable td{ border-bottom: 1px solid rgba(255,245,238, 0.5);}
+
+.PITitlesFirst{	
+    border-top: 1px solid rgba(255,245,238, 0.5);;
+    text-align: center;
+}
+
+.button-wrapper {
+	width: 50px;
+	height: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 15px;
+	box-shadow: 0 2px 4px rgba(255,245,238, 0.5);;
+	background-color: #E99347;
+	cursor: pointer;
+  }
+  
+  #edit, #delete {
+	width: 7%;
+	margin-bottom: 5px;
+	display: inline-flex;
+	position: relative;
+	cursor: pointer;
+  }
+  
+  #edit { float: left;}
+  
+  #delete { float: right; }
+
+  #button-wrapper-del{ background-color: #E84629; }
+
+  #Download {
+	width: 40%;
+	height: 40px;
+	margin-top: 5px;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	left: 30%;
+	border-radius: 15px;
+	box-shadow: 0 2px 4px rgba(255,245,238, 0.5);;
+	background-color: #E99347;
+	cursor: pointer;
+  }
+
+  #BDownload{
+	width: auto;
+	background-color: #E99347;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	border: none;
+	color: white;
+	font-size: 15px;
+	cursor: pointer;
+  }
+  
