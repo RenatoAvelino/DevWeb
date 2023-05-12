@@ -31,11 +31,16 @@
 
         <div id="PersonalInfo">
             <div id="edit">
-                <button type="submit" id="edit">Editar Informações</button>
-            </div>
-            <div id="delete">
-                <button type="submit" id="delete">Deletar Conta</button>
-            </div>
+                <div class="button-wrapper">
+                  <img src="/FrontEnd/Imagens/edit32.png" alt="Editar Informações">
+                </div>
+              </div>
+              <div id="delete">
+                <div class="button-wrapper" id="button-wrapper-del">
+                  <img src="/FrontEnd/Imagens/delete32.png" alt="Deletar Conta">
+                </div>
+              </div>
+              
             <table class="PITable">
               <tr>
                   <td class="PITitlesFirst" colspan="2">
@@ -60,12 +65,20 @@
               </tr>
               <tr>
                 <td>
-                  <strong>CPF: </strong>
+                  <strong>CPF/CNPJ: </strong>
                 </td>
                 <td>
                   <p>111.111.111-11</p>
                 </td>
               </tr>
+              <tr>
+                <td>
+                  <strong>Data de Nascimento: </strong>
+                </td>
+                <td>
+                  <p>01/01/2001</p>
+                </td>
+            </tr>
               <tr>
                 <td>
                   <strong>Endereço: </strong>
@@ -74,8 +87,79 @@
                   <p>Rua A, Numero 0, Bairro B, CEP 111-11</p>
                 </td>
             </tr>
-              
+            <tr>
+                <td>
+                  <strong>Número de Contato: </strong>
+                </td>
+                <td>
+                  <p>+55 85 99876-5432</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                  <strong>Email: </strong>
+                </td>
+                <td>
+                  <p>clienteresponsavel@gmail.com</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                  <strong>Dados bancários(Conta-Agência): </strong>
+                </td>
+                <td>
+                  <p>1234567-8</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                  <strong>Genêro: </strong>
+                </td>
+                <td>
+                  <p>Masculino</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                  <strong>Idioma de Preferência: </strong>
+                </td>
+                <td>
+                  <p>Português</p>
+                </td>
+            </tr>  
+            <tr>
+                <td class="PITitlesFirst" colspan="2">
+                  <h2>Informações do Contrato</h2>
+                </td >
+            </tr>   
+            <tr>
+                <td>
+                  <strong>Id do contrato: </strong>
+                </td>
+                <td>
+                  <p>0147852369</p>
+                </td>
+            </tr>     
+            <tr>
+                <td>
+                  <strong>Início do contrato: </strong>
+                </td>
+                <td>
+                  <p>28/10/2018</p>
+                </td>
+            </tr>     
+            <tr>
+                <td>
+                  <strong>Fim do contrato: </strong>
+                </td>
+                <td>
+                  <p>30/10/2022</p>
+                </td>
+            </tr>  
             </table>
+            <div id="Download">
+                <button type="submit" id="BDownload">Baixar cópia do contrato</button>
+            </div>
           </div>  
 
         <footer>

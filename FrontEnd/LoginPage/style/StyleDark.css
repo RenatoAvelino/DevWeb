@@ -7,6 +7,7 @@
 	box-sizing: border-box;
 	box-shadow: 0 0 10px rgba(255,245,238, 0.5);
 	background-color: rgba(0, 0, 0, 0.3);
+	border-radius: 15px;
   	opacity: 1;
   	backdrop-filter: blur(5px);
 	position: absolute;
@@ -21,6 +22,7 @@
 	display: inline-block;
 	border: 1px solid #ccc;
 	box-sizing: border-box;
+	border-radius: 15px;
   }
   button {
 	background-color: rgb(119,136,153);
@@ -30,6 +32,7 @@
 	border: none;
 	cursor: pointer;
 	width: 66.66%;
+	border-radius: 15px;
   }
   
   #buttons{

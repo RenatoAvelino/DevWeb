@@ -15,6 +15,7 @@
 	padding: 43px;
 	box-shadow: 0 0 10px rgba(255,245,238, 0.5);
 	background-color: rgba(0, 0, 0, 0.3);
+	border-radius: 15px;
   	opacity: 0.95;
   	backdrop-filter: blur(5px);
 	text-align: center;
@@ -45,6 +46,7 @@
 	padding: 20px;
 	box-shadow: 0 0 10px rgba(255,245,238, 0.5); 
 	background-color: rgba(0, 0, 0, 0.3);
+	border-radius: 15px;
   	opacity: 0.95;
   	backdrop-filter: blur(5px);
 	text-align: left;
@@ -72,6 +74,7 @@
 	padding: 20px;
 	box-shadow: 0 0 10px rgba(255,245,238, 0.5); 
 	background-color: rgba(0, 0, 0, 0.3);
+	border-radius: 15px;
   	opacity: 1;
   	backdrop-filter: blur(5px);
 	text-align: left;
