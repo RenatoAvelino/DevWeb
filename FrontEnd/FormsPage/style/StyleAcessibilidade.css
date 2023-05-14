@@ -62,3 +62,54 @@ body {
 	left: 20px;
 	cursor: pointer;
 }
+
+.row {
+	margin: auto;
+	width: 60%;
+	padding: 10px;
+	vertical-align: top;
+	height: auto !important;
+  }
+  
+  .collapsible {
+	background-color: #777;
+	color: white;
+	cursor: pointer;
+	padding: 18px;
+	width: 100%;
+	border: none;
+	text-align: center;
+	outline: none;
+	font-size: 23px;
+  }
+  
+  .active, .collapsible:hover {
+	background-color: #555;
+  }
+  
+  .content {
+	padding: 0 18px;
+	text-align: center;
+	display: none;
+	overflow: hidden;
+	background-color:  rgb(119,136,153);
+  }
+  
+	button {
+	  background-color: rgb(119,136,153);
+	  color: white;
+	  padding: 14px 20px;
+	  margin: 8px 0;
+	  border: none;
+	  cursor: pointer;
+	  width: 66.66%;
+	  border-radius: 15px;
+	}
+	
+	#buttons{
+		display: inline-block;
+		position: relative;
+		left: 50%;
+		transform: translateY(-0%) translateX(-33.33%);
+		width: 66.66%;
+	}
