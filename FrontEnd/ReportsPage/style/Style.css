@@ -1,7 +1,29 @@
+/*-------------------------General----------------------------------*/
+:root{
+    --font-size: 17px;
+    --header-and-footer-color: black;
+    --background-color: rgba(255,245,238, 0.5);
+    --box-shadow-color: rgba(0, 0, 0, 0.3);
+    --background-color-body: rgb(255,245,238);
+    --background-opacity: 0.8;
+    --background-image: url("/FrontEnd/Imagens/sun.png");
+	--button-color: #E99347;
+}
+
+.dark-mode:root {
+    --font-size: 17px;
+    --header-and-footer-color: #E99347;
+    --background-color: rgba(0, 0, 0, 0.3);
+    --box-shadow-color: rgba(255,245,238, 0.5);
+    --background-color-body: black;
+    --background-opacity: 0.95;
+    --background-image: url("/FrontEnd/Imagens/sun-white.png");
+}
+
 footer {  
 	position:relative; 
 	bottom: 0px; 
-	box-shadow: 0 0 20px rgba(255,245,238, 0.5);
+	box-shadow: 0 0 20px var(--box-shadow-color);
 }
 
 
@@ -11,10 +33,10 @@ footer {
 	padding: 12px 20px;
 	margin: 8px 0;
 	display: inline-block;
-	border: 1px solid #ccc;
+	border: 1px solid var(--background-color-body);
 	box-sizing: border-box;
-	box-shadow: 0 0 10px rgba(255, 245, 238, 0.5);
-	background-color: rgba(0, 0, 0, 0.3);
+	box-shadow: 0 0 10px var(--box-shadow-color);
+	background-color: var(--background-color);
 	border-radius: 15px;
 	opacity: 1;
 	backdrop-filter: blur(5px);
@@ -38,13 +60,13 @@ footer {
   
   input[type=date] {
 	padding: 12px 20px;
-	border: 1px solid #ccc;
+	border: 1px solid var(--background-color-body);
 	box-sizing: border-box;
   }
   
   button {
-	background-color: rgb(119,136,153);
-	color: white;
+	background-color: var(--button-color);
+	color: var(--background-color-body);
 	padding: 14px 20px;
 	border: none;
 	cursor: pointer;
@@ -77,10 +99,10 @@ footer {
   	border-spacing: 0px;
 	margin: 0 auto;
 	padding: 33px;
-	box-shadow: 0 0 10px rgba(255,245,238, 0.5);
-	background-color: rgba(0, 0, 0, 0.3);
+	box-shadow: 0 0 10px var(--box-shadow-color);
+	background-color: var(--background-color);
 	border-radius: 15px;
-  	opacity: 0.8;
+  	opacity: var(--background-opacity);
   	backdrop-filter: blur(5px);
 	text-align: left;
 }
@@ -105,30 +127,30 @@ footer {
   	border-spacing: 0px;
 	margin: 0 auto;
 	padding: 33px;
-	box-shadow: 0 0 10px rgba(255,245,238, 0.5);
-	background-color: rgba(0, 0, 0, 0.3);
+	box-shadow: 0 0 10px var(--box-shadow-color);
+	background-color: var(--background-color);
 	border-radius: 15px;
-  	opacity: 0.8;
+  	opacity: var(--background-opacity);
   	backdrop-filter: blur(5px);
 	text-align: left;
 }
 
-.ISTable td{ border: 1px solid rgba(255,245,238, 0.5);}
+.ISTable td{ border: 1px solid var(--box-shadow-color); }
 
 .ISNumbers{	font-size: 35px; }
 
 #ISTitlesFirst{ 
-    border: 1px solid rgba(255,245,238, 0.5);
+    border: 1px solid var(--box-shadow-color);
     text-align: center;
 }
 #ISTitlesFirst2{ 
-    border: 1px solid rgba(255,245,238, 0.5);
+    border: 1px solid var(--box-shadow-color);
     text-align: center;
 }
 
 /*-------------------------Lista Endereços------------------------------*/
 
-.EndTable td{ border: 1px solid rgba(255,245,238, 0.5)}
+.EndTable td{ border: 1px solid var(--box-shadow-color);}
 
 /*-------------------------Impacto Ambiental------------------------------*/
 #AmbSoc{
