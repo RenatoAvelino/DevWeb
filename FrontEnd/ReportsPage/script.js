@@ -1,15 +1,17 @@
 function alterarImagens() {
-    const html = document.querySelector('html')
-    const imgs = Array.from(document.getElementsByClassName("AmbSoc"));
-  
+  const html = document.querySelector('html');
+  const imgs = Array.from(document.getElementsByClassName("AmbSoc"));
+  const temaAtual = html.classList.contains('dark-mode') ? 'dark' : 'light';
 
-    if (html.classList.contains('dark-mode')) {
-      imgs.forEach((img) => {
-        img.src= img.src.replace('.png', '-white.png');
-      });
-      } else {
-        imgs.forEach((img) => {
-          img.src= img.src.replace('-white.png', '.png');
-        });
-      }
-  };
+  imgs.forEach((img) => {
+    const src = img.src;
+
+    if (temaAtual === 'dark' && !src.includes('-white.png')) {
+      const newSrc = src.replace('.png', '-white.png');
+      img.src = newSrc;
+    } else if (temaAtual === 'light' && src.includes('-white.png')) {
+      const newSrc = src.replace('-white.png', '.png');
+      img.src = newSrc;
+    }
+  });
+}
