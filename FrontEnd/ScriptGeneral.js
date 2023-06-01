@@ -30,3 +30,15 @@ document.addEventListener('DOMContentLoaded', function() {
     alterarImagens();
   }
 });
+
+// Aumentar a fonte (max testado = 23)
+function aumentarFonte(){
+  document.documentElement.style.setProperty('--font-size', '21px');
+
+}
+
+// Diminuir a fonte (min testado = 10)
+function diminuirFonte(){
+  document.documentElement.style.setProperty('--font-size', '13px');
+
+}
