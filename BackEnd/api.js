@@ -5,15 +5,15 @@ const porta = process.env.PORT
 
 
 app.get('/',(req,res)=>{
-	res.send('Ola Mundo Express!')
+	res.status(200).send('Ola Mundo Express!')
 })
 
 app.get('/testar-conexao',async (req,res)=>{
     try {
         await conexao.conectar();
-        res.send('Conectado ao banco');
+        res.status(200).send('Conectado ao banco');
       } catch (error) {
-        res.send(`Erro ao conectar ao banco: ${error.message}`);
+        res.status(500).send(`Erro ao conectar ao banco: ${error.message}`);
       }
 })
 
