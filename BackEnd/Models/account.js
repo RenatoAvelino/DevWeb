@@ -24,7 +24,7 @@ const Account = db.define('account', {
         type: Sequelize.STRING,
         allowNull: false,
         validate: {
-          isIn: [['Custumer', 'Company', 'Admin']],
+          isIn: [['Customer', 'Company', 'Admin']],
         },
     }
 
