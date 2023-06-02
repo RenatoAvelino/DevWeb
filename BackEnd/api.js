@@ -1,20 +1,46 @@
 const express= require('express')
-const conexao = require('./db')
+const db = require('./db')
 const app = express()
 const porta = process.env.PORT
+
+const Account = require('./Models/account')
 
 
 app.get('/',(req,res)=>{
 	res.status(200).send('Ola Mundo Express!')
 })
 
-app.get('/testar-conexao',async (req,res)=>{
+class Populate {
+  static async popularDados() {
     try {
-        await conexao.conectar();
-        res.status(200).send('Conectado ao banco');
-      } catch (error) {
-        res.status(500).send(`Erro ao conectar ao banco: ${error.message}`);
-      }
+      console.log('entrei')
+      // Lógica para popular os dados no banco de dados
+      await sequelize.sync({ force: true }) // Recria as tabelas (opcional)
+      await Account.create({ login: 'Vini', password: '1234', category:'Admin'})
+      await Account.create({ login: 'Jonathan', password: 'Dio', category:'Client'})
+      await Account.create({ login: 'Joseph', password: 'Brando', category:'Company'})
+      console.log('passei')
+      res.status(200).send('Dados populados com sucesso')
+    } catch (error) {
+      res.status(500).send(`Erro ao popular dados: ${error.message}`)
+    }
+  }
+}
+
+app.get('/populardados', async (req, res) => {
+  try {
+    await Populate.popularDados()
+  } catch (error) {
+    res.status(500).send(`Erro ao popular dados: ${error.message}`)
+  }
 })
 
-app.listen(porta || 3000, ()=>console.log('servidor rodando em http://localhost:' + (porta || 3000)))
+app.listen(porta || 3000, async () => {
+  try {
+    await db.sync() // Sincroniza o banco de dados
+    console.log('Banco de dados sincronizado');
+    console.log(`Servidor rodando em http://localhost:${porta || 3000}`)
+  } catch (error) {
+    console.error('Erro ao sincronizar o banco de dados:', error)
+  }
+})
