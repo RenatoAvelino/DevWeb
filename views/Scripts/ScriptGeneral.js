@@ -8,10 +8,10 @@ function alterarTema() {
   html.classList.toggle('dark-mode');
 
   if (html.classList.contains('dark-mode')) {
-    imgDark.src = '/FrontEnd/Imagens/sun32.png';
+    imgDark.src = '/Imagens/sun32.png';
     localStorage.setItem('tema', 'dark');
   } else {
-    imgDark.src = '/FrontEnd/Imagens/lua-minguante.png';
+    imgDark.src = '/Imagens/lua-minguante.png';
     localStorage.setItem('tema', 'light');
   }
 
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const html = document.querySelector('html');
     const imgDark = document.getElementById('dark-light');
     html.classList.add('dark-mode');
-    imgDark.src = '/FrontEnd/Imagens/sun32.png';
+    imgDark.src = '/Imagens/sun32.png';
     alterarImagens();
   }
   
