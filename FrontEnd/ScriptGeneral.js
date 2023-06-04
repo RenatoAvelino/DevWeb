@@ -1,3 +1,5 @@
+var font = 1;
+
 function alterarTema() {
   const html = document.querySelector('html');
   const imgDark = document.getElementById('dark-light');
@@ -18,9 +20,10 @@ function alterarTema() {
   }
 }
 
-// Verificar o tema armazenado e aplicar as imagens corretas ao carregar cada página
+// Verificar o tema armazenado e fonte e aplicar as imagens corretas ao carregar cada página
 document.addEventListener('DOMContentLoaded', function() {
   const temaArmazenado = localStorage.getItem('tema');
+  const fonteAtual = localStorage.getItem('fonte');
 
   if (temaArmazenado === 'dark') {
     const html = document.querySelector('html');
@@ -29,16 +32,51 @@ document.addEventListener('DOMContentLoaded', function() {
     imgDark.src = '/FrontEnd/Imagens/sun32.png';
     alterarImagens();
   }
+  
+  font = 1;
+  if(fonteAtual == 'min'){
+    diminuirFonte();
+  } else if(fonteAtual == 'max'){
+    aumentarFonte();
+  }
 });
 
 // Aumentar a fonte (max testado = 23)
 function aumentarFonte(){
-  document.documentElement.style.setProperty('--font-size', '21px');
-
+  //document.documentElement.style.setProperty('--font-size', '21px');
+  switch (font) {
+    case 0:
+      document.documentElement.style.setProperty('--font-size', '17px');
+      font = 1;
+      localStorage.setItem('fonte', 'padrao');
+      break;
+    case 1:
+      document.documentElement.style.setProperty('--font-size', '21px');
+      localStorage.setItem('fonte', 'max');
+      font = 2;
+      break;
+    default:
+      break;
+  }
+  
 }
 
 // Diminuir a fonte (min testado = 10)
 function diminuirFonte(){
   document.documentElement.style.setProperty('--font-size', '13px');
+  switch (font) {
+    case 1:
+      document.documentElement.style.setProperty('--font-size', '13px');
+      localStorage.setItem('fonte', 'min');
+      font = 0;
+      break;
+    case 2:
+      document.documentElement.style.setProperty('--font-size', '17px');
+      localStorage.setItem('fonte', 'padrao');
+      font = 1;
+      break;
+    default:
+      break;
+  }
 
 }
