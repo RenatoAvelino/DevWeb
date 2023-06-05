@@ -3,15 +3,22 @@ var font = 1;
 function alterarTema() {
   const html = document.querySelector('html');
   const imgDark = document.getElementById('dark-light');
+  const imgMin = document.getElementById('font-changers-min');
+  const imgMax = document.getElementById('font-changers-plus');
+
   const temaAtual = html.classList.contains('dark-mode') ? 'dark' : 'light';
 
   html.classList.toggle('dark-mode');
 
   if (html.classList.contains('dark-mode')) {
-    imgDark.src = '/FrontEnd/Imagens/sun32.png';
+    imgDark.src = '/Imagens/sun32.png';
+    imgMax.src = '/Imagens/zoom-plus.png';
+    imgMin.src = '/Imagens/zoom-min.png';
     localStorage.setItem('tema', 'dark');
   } else {
-    imgDark.src = '/FrontEnd/Imagens/lua-minguante.png';
+    imgDark.src = '/Imagens/lua-minguante.png';
+    imgMax.src = '/Imagens/zoom-plus-black.png';
+    imgMin.src = '/Imagens/zoom-min-black.png';
     localStorage.setItem('tema', 'light');
   }
 
@@ -28,8 +35,13 @@ document.addEventListener('DOMContentLoaded', function() {
   if (temaArmazenado === 'dark') {
     const html = document.querySelector('html');
     const imgDark = document.getElementById('dark-light');
+    const imgMin = document.getElementById('font-changers-min');
+    const imgMax = document.getElementById('font-changers-plus');
+
     html.classList.add('dark-mode');
-    imgDark.src = '/FrontEnd/Imagens/sun32.png';
+    imgDark.src = '/Imagens/sun32.png';
+    imgMax.src = '/Imagens/zoom-plus.png';
+    imgMin.src = '/Imagens/zoom-min.png';
     alterarImagens();
   }
   
