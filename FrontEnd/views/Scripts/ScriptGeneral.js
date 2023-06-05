@@ -35,8 +35,13 @@ document.addEventListener('DOMContentLoaded', function() {
   if (temaArmazenado === 'dark') {
     const html = document.querySelector('html');
     const imgDark = document.getElementById('dark-light');
+    const imgMin = document.getElementById('font-changers-min');
+    const imgMax = document.getElementById('font-changers-plus');
+
     html.classList.add('dark-mode');
     imgDark.src = '/Imagens/sun32.png';
+    imgMax.src = '/Imagens/zoom-plus.png';
+    imgMin.src = '/Imagens/zoom-min.png';
     alterarImagens();
   }
   
