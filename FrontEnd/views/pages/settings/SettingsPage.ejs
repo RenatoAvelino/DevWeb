@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <!--
+      =================PADRONIZADO=================
+    //-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" type="image/x-icon" href="/Imagens/sun32.ico">
+    <link href="/Styles/General.css" rel="stylesheet" type="text/css">
+    <script src="/Scripts/ScriptGeneral.js"></script>
+
+    <!--
+      =================ESPECIFICO=================
+    //-->
+    <link href="/pages/settings/style/style.css" rel="stylesheet" type="text/css">
+    <script src="/pages/settings/script.js"></script>
+    
+    <title>Configurações da Conta</title>
+  </head>
+  <body>
+  <%- include('../../partials/header') %>
+
+  <div id="PersonalInfo">
+    <div id="edit">
+        <div class="button-wrapper">
+          <img src="/Imagens/edit32-white.png" alt="Editar Informações" class="ButtonImages">
+        </div>
+      </div>
+      <div id="delete">
+        <div class="button-wrapper" id="button-wrapper-del">
+          <img src="/Imagens/delete32-white.png" alt="Deletar Conta" class="ButtonImages">
+        </div>
+      </div>
+      
+    <table class="PITable">
+      <tr>
+          <td class="PITitlesFirst" colspan="2">
+            <h2>Informações Pessoais</h2>
+          </td >
+      </tr>
+      <tr>
+        <td >
+          <strong>Nome completo: </strong>
+        </td >
+        <td >
+          <p>Vinícius Rebouças Cortêz</p>
+        </td>
+    </tr>
+      <tr>
+        <td>
+          <strong>Número de contato: </strong>
+        </td>
+        <td>
+          <p>085 90000-0001</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>CPF/CNPJ: </strong>
+        </td>
+        <td>
+          <p>111.111.111-11</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Data de Nascimento: </strong>
+        </td>
+        <td>
+          <p>01/01/2001</p>
+        </td>
+    </tr>
+      <tr>
+        <td>
+          <strong>Endereço: </strong>
+        </td>
+        <td>
+          <p>Rua A, Numero 0, Bairro B, CEP 111-11</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+          <strong>Número de Contato: </strong>
+        </td>
+        <td>
+          <p>+55 85 99876-5432</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+          <strong>Email: </strong>
+        </td>
+        <td>
+          <p>clienteresponsavel@gmail.com</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+          <strong>Dados bancários(Conta-Agência): </strong>
+        </td>
+        <td>
+          <p>1234567-8</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+          <strong>Genêro: </strong>
+        </td>
+        <td>
+          <p>Masculino</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+          <strong>Idioma de Preferência: </strong>
+        </td>
+        <td>
+          <p>Português</p>
+        </td>
+    </tr>  
+    <tr>
+        <td class="PITitlesFirst" colspan="2">
+          <h2>Informações do Contrato</h2>
+        </td >
+    </tr>   
+    <tr>
+        <td>
+          <strong>Id do contrato: </strong>
+        </td>
+        <td>
+          <p>0147852369</p>
+        </td>
+    </tr>     
+    <tr>
+        <td>
+          <strong>Início do contrato: </strong>
+        </td>
+        <td>
+          <p>28/10/2018</p>
+        </td>
+    </tr>     
+    <tr>
+        <td>
+          <strong>Fim do contrato: </strong>
+        </td>
+        <td>
+          <p>30/10/2022</p>
+        </td>
+    </tr>  
+    </table>
+    <div id="Download">
+        <button type="submit" id="BDownload">Baixar cópia do contrato</button>
+    </div>
+  </div> 
+
+  <%- include('../../partials/footer') %>
+  </body>
+</html>
