@@ -15,3 +15,27 @@ function alterarImagens() {
       }
     });
   }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const nome = document.getElementById("nome");
+    const numero = document.getElementById("numero");
+    const cpf = document.getElementById("cpf");
+    const endpoint = "http://localhost:8000/test"
+
+    fetch(endpoint)
+      .then(res => res.json())
+      .then(dados => {
+        console.log(dados);
+        nome.innerHTML = dados.Nome;
+        numero.innerHTML = dados.telefone;
+        cpf.innerHTML = dados.cpf;
+      })
+      .catch(error => console.error(`Erro ao carregar: ${error.message}`))
+  })
+  
+  
+  
+  
+  
+  
+  
