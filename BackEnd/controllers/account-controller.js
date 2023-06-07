@@ -1,14 +1,39 @@
 const db = require('../db')
 const Account = require('../models/account')
+const CustomerUser = require('../models/customerUser')
 
 module.exports = function(app) {
     class Populate {
       static async popularDados() {
         try {
           // Lógica para popular os dados no banco de dados
-          await db.sync({ force: true }) // Recria as tabelas (opcional)
-          await Account.create({ login: 'Vini', password: '1234', category:'Admin'})
-          await Account.create({ login: 'Jonathan', password: 'Dio', category:'Customer'})
+          await db.sync({force: true}) // Recria as tabelas (opcional)
+
+          const customerUser1 = await CustomerUser.create({ 
+            name: 'Vinicius Cortêz', 
+            phone: '+55 85 9987654321', 
+            cpf:'000.111.222-33',
+            birthday:new Date(2000, 5, 15),
+            address:'Rua A, Numero B, Bairro C, Cidade D',
+            email:'meuemail@gmail.com',
+            bankAccount:'1234567-8',
+            gender:'Masculino',
+            language:'Português', 
+          })
+
+          const customerUser2 = await CustomerUser.create({ 
+            name: 'Jonathan Joestar', 
+            phone: '+55 85 91234-56789', 
+            cpf:'444.555.666-77',
+            address:'Rua E, Numero F, Bairro G, Cidade H',
+            email:'jojo@gmail.com',
+            bankAccount:'8765432-1',
+            gender:'Masculino',
+          })
+
+
+          await Account.create({ login: 'Vini', password: '1234', category:'Admin', CustomerUserId: customerUser1.id})
+          await Account.create({ login: 'Jonathan', password: 'Dio', category:'Customer', CustomerUserId: customerUser2.id})
           await Account.create({ login: 'Joseph', password: 'Brando', category:'Company'})
           return true
         } catch (error) {
@@ -17,7 +42,7 @@ module.exports = function(app) {
       }
     }
     
-    app.get('/populardados', async (req, res) => {
+    app.get('/popular', async (req, res) => {
       try {
         let popular = await Populate.popularDados()
         if(popular=true){
@@ -82,9 +107,6 @@ module.exports = function(app) {
         }
 
         //Campos Alteraveis
-        if (body.UserId) {
-          account.UserId = body.UserId
-        }
         if (body.login) {
           account.login = body.login
         }

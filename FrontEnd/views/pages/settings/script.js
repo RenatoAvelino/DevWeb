@@ -17,18 +17,31 @@ function alterarImagens() {
   }
 
   document.addEventListener('DOMContentLoaded', () => {
-    const nome = document.getElementById("nome");
-    const numero = document.getElementById("numero");
-    const cpf = document.getElementById("cpf");
-    const endpoint = "http://localhost:8000/test"
+    const name = document.getElementById("name")
+    const phone = document.getElementById("phone")
+    const cpf = document.getElementById("cpf")
+    const birthday = document.getElementById("birthday")
+    const address = document.getElementById("address")
+    const email = document.getElementById("email")
+    const bankAccount = document.getElementById("bankAccount")
+    const gender = document.getElementById("gender")
+    const language = document.getElementById("language")
+    
+
+    const endpoint = "http://localhost:8000/custumerUser-by-id/1"
 
     fetch(endpoint)
       .then(res => res.json())
       .then(dados => {
-        console.log(dados);
-        nome.innerHTML = dados.Nome;
-        numero.innerHTML = dados.telefone;
-        cpf.innerHTML = dados.cpf;
+        name.innerHTML = dados.name
+        phone.innerHTML = dados.phone
+        cpf.innerHTML = dados.cpf
+        birthday.innerHTML = dados.birthday
+        address.innerHTML = dados.address
+        email.innerHTML = dados.email
+        bankAccount.innerHTML = dados.bankAccount
+        gender.innerHTML = dados.gender
+        language.innerHTML = dados.language
       })
       .catch(error => console.error(`Erro ao carregar: ${error.message}`))
   })

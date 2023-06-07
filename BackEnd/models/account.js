@@ -1,5 +1,7 @@
 const Sequelize = require('sequelize')
 const db = require('../db')
+const UserAccount = require('./customerUser');
+const CustomerUser = require('./customerUser');
 
 const Account = db.define('account', {
     id: {
@@ -7,10 +9,6 @@ const Account = db.define('account', {
         autoIncrement: true,
         allowNull: false,
         primaryKey: true
-    },
-    UserId: {
-        type: Sequelize.INTEGER,
-        allowNull: true
     },
     login: {
         type: Sequelize.STRING,
@@ -30,11 +28,15 @@ const Account = db.define('account', {
           isIn: [['Customer', 'Company', 'Admin']],
         },
     }
-
 }, {
     tableName: 'accounts', // opcional: nome da tabela no banco de dados
     timestamps: true, // opcional: cria automaticamente as colunas createdAt e updatedAt
     underscored: true // opcional: usa underscore_case para os nomes dos campos
+})
+
+Account.belongsTo(CustomerUser,{
+    constraint: true,
+    foreignKey:'CustomerUserId'
 })
 
 module.exports = Account
