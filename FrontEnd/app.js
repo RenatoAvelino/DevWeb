@@ -7,7 +7,8 @@ app.use(express.static(__dirname + '/views'));
 
 app.get('/', (req, res) => {
     //res.render('pages/base/NaoFeitoAinda')
-    res.render('pages/login/LoginPage')
+    //res.render('pages/login/LoginPage')
+    res.render('pages/admin/AdminPage')
 })
 
 app.get('/main', (req, res) => {
@@ -32,6 +33,10 @@ app.get('/todo', (req, res) => {
 
 app.get('/login', (req, res) => {
     res.render('pages/login/LoginPage')
+})
+
+app.get('/admin', (req, res) => {
+    res.render('pages/admin/AdminPage')
 })
 
 app.listen(porta || 3000, async () => {
