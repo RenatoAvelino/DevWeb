@@ -18,7 +18,10 @@ const Account = db.define('account', {
     },
     password: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
+        get() {
+            return undefined; // Retorna undefined para impedir a leitura direta do campo password
+        }
     },
     category: {
         type: Sequelize.STRING,
