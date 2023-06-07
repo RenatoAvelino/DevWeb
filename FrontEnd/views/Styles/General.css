@@ -54,9 +54,15 @@ header, footer{
 	width: 100%;
 }
 
+header{
+	top:0;
+	height:60px;
+}
+
 footer { 
 	position:absolute; 
-	bottom: 0px; 
+	bottom: 0px;
+	margin-bottom: -50px;
 	box-shadow: 0 0 30px var(--box-shadow-color);
 }
 
