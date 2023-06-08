@@ -1,6 +1,5 @@
 const express= require('express')
 const db = require('./db')
-const crypto = require('crypto')
 const app = express()
 const porta = process.env.PORT
 
@@ -10,8 +9,8 @@ const customerUser_controller = require('./controllers/customerUser-controller')
 const Account = require('./models/account')
 const CustomerUser = require('./models/customerUser')
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 
 //Routes
 account_controller(app)
@@ -20,40 +19,6 @@ customerUser_controller(app)
 app.get('/',(req,res)=>{
   res.status(200).send('Ola Mundo Express!')
 })
-
-app.get('/test', async (req, res) => {
-  const body = req.body;
-  const password = body.password;
-  const login = body.login;
-
-  // Função para verificar se a senha é válida
-  function verifyPassword(password, hashedPassword) {
-    if (!hashedPassword) {
-      return false;
-    }
-    const [salt, hash] = hashedPassword.split(':');
-    const verifyHash = crypto.pbkdf2Sync(password, salt, 1000, 64, 'sha512').toString('hex');
-    return hash === verifyHash;
-  }
-
-  // Encontre a conta com o login fornecido
-  const account = await Account.findOne({ where: { login } });
-
-  // Verifique se a conta existe
-  if (!account) {
-    // Conta não encontrada
-    return res.status(401).json({ error: 'Login inválido' });
-  }
-
-  // Verifique se a senha fornecida é válida
-  if (!verifyPassword(password, account.password)) {
-    // Senha inválida
-    return res.status(401).json({ error: 'Senha inválida' });
-  } else {
-    return res.status(200).json('Senha Válida');
-  }
-});
-
 
 class Populate {
   static async popularDados() {
