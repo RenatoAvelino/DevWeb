@@ -23,7 +23,12 @@ function alterarTema() {
   }
 
   if (temaAtual !== html.classList.contains('dark-mode')) {
-    alterarImagens();
+    try{
+      alterarImagens()
+    }
+    catch{
+      {}
+    }
   }
 }
 
@@ -42,7 +47,12 @@ document.addEventListener('DOMContentLoaded', function() {
     imgDark.src = '/Imagens/sun32.png';
     imgMax.src = '/Imagens/zoom-plus.png';
     imgMin.src = '/Imagens/zoom-min.png';
-    alterarImagens();
+    try{
+      alterarImagens()
+    }
+    catch{
+      {}
+    }
   }
   
   font = 1;

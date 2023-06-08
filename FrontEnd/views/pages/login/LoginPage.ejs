@@ -19,7 +19,6 @@
     <title>Follow The Solar</title>
   </head>
   <body>
-  <%- include('../../partials/header') %>
 
   <div id="FormLog">
     <form action="script.js" method="POST">
@@ -28,8 +27,9 @@
         <label for="passw">Senha:</label><br>
         <input type="password" id="passw" name="passw" placeholder="Password" required><br><br>
         <div id="buttons">
-            <button type="submit" id="ClickLog">Login</button><br><br>
-            <button type="submit" id="ForgotPassword">Esqueceu a senha?</button>
+            <button type="button" id="ClickLog">Login</button><br><br>
+            <div id="errorContainer" style="display: none;"></div>
+            <button type="button" id="ForgotPassword">Esqueceu a senha?</button>
         </div>
     </form>
 </div>

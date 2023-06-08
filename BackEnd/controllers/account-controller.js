@@ -4,8 +4,6 @@ require("dotenv-safe").config()
 const crypto = require('crypto')
 const jwt = require('jsonwebtoken')
 
-
-const urlFront = 'http://localhost:3000' 
 const accountFields = ['id', 'login', 'category']
 
 module.exports = function(app) {

@@ -1,6 +1,7 @@
 const express= require('express')
 const db = require('./db')
 const app = express()
+const cors = require('cors')
 const porta = process.env.PORT
 
 const account_controller = require('./controllers/account-controller')
@@ -11,6 +12,8 @@ const CustomerUser = require('./models/customerUser')
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+app.use(cors())
+
 
 //Routes
 account_controller(app)
