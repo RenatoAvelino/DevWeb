@@ -45,6 +45,26 @@ a {
 	background-color: var(--background-color);
   	backdrop-filter: blur(5px);
 	text-align: left;
+	border-radius: 15px;
 }
 
 .TabelaMante td{ border: 1px solid var(--box-shadow-color);}
+
+/*-------------------------------Botoes--------------------------------------*/
+button {
+	background-color: var(--button-color);
+	color: var(--background-color-body);
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	border-radius: 15px;
+  }
+
+#Update, #View {
+	--button-color: #E99347;
+}
+
+#Delete {
+	--button-color: #e95247;
+}
