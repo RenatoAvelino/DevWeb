@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize')
 const db = require('../db')
-const UserAccount = require('./customerUser');
-const CustomerUser = require('./customerUser');
+const crypto = require('crypto')
+const CustomerUser = require('./customerUser')
 
 const Account = db.define('account', {
     id: {
@@ -16,10 +16,7 @@ const Account = db.define('account', {
     },
     password: {
         type: Sequelize.STRING,
-        allowNull: false,
-        get() {
-            return undefined; // Retorna undefined para impedir a leitura direta do campo password
-        }
+        allowNull: false
     },
     category: {
         type: Sequelize.STRING,
@@ -37,6 +34,18 @@ const Account = db.define('account', {
 Account.belongsTo(CustomerUser,{
     constraint: true,
     foreignKey:'CustomerUserId'
+})
+
+// Função para criptografar a senha
+function encryptPassword(password) {
+    const salt = crypto.randomBytes(16).toString('hex')
+    const hash = crypto.pbkdf2Sync(password, salt, 1000, 64, 'sha512').toString('hex')
+    return `${salt}:${hash}`
+}
+
+// Hook beforeCreate para criptografar a senha
+Account.beforeCreate(account => {
+    account.password = encryptPassword(account.password)
 })
 
 module.exports = Account

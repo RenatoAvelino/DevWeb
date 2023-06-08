@@ -3,7 +3,7 @@ const db = require('../db')
 const CustomerUser = require('../models/customerUser')
 
 module.exports = function(app) {
-  app.get('/custumerUser-by-id/:id', async (req, res) => {
+  app.get('/customerUser-by-id/:id', async (req, res) => {
     const { id } = req.params
 
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000'); // Substitua com a origem correta

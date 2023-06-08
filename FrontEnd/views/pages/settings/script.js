@@ -28,7 +28,7 @@ function alterarImagens() {
     const language = document.getElementById("language")
     
 
-    const endpoint = "http://localhost:8000/custumerUser-by-id/1"
+    const endpoint = "http://localhost:8000/customerUser-by-id/1"
 
     fetch(endpoint)
       .then(res => res.json())
