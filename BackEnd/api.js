@@ -9,6 +9,7 @@ const customerUser_controller = require('./controllers/customerUser-controller')
 
 const Account = require('./models/account')
 const CustomerUser = require('./models/customerUser')
+const CustomerContract = require('./models/customerContract')
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
@@ -29,6 +30,7 @@ class Populate {
       // Lógica para popular os dados no banco de dados
       await db.sync({force: true}) // Recria as tabelas (opcional)
 
+      //CustumerUsers:
       const customerUser1 = await CustomerUser.create({ 
         name: 'Vinicius Cortêz', 
         phone: '+55 85 9987654321', 
@@ -51,7 +53,17 @@ class Populate {
         gender:'Masculino',
       })
 
+      const customerUser3 = await CustomerUser.create({ 
+        name: 'Joseph Joestar', 
+        phone: '+55 85 91234-56789', 
+        cpf:'444.555.666-77',
+        address:'Rua E, Numero F, Bairro G, Cidade H',
+        email:'jojo2@gmail.com',
+        bankAccount:'8765432-1',
+        gender:'Masculino',
+      })
 
+      //Accounts:
       await Account.create({ 
         login: 'Vini', 
         password: '1234', 
@@ -67,8 +79,32 @@ class Populate {
       await Account.create({ 
         login: 'Joseph', 
         password: 'Brando', 
-        category:'Company'
+        category:'Company',
+        CustomerUserId: customerUser3.id
       })
+
+      //CustomersContracts
+      await CustomerContract.create({ 
+        startDate: new Date(2023, 1, 1), 
+        endDate: new Date(2025, 1, 1), 
+        contractPath:'/home/vcortez/Documentos/Repositorio/DevWeb/BackEnd/Contracts/Contract1.pdf',
+        CustomerUserId: customerUser1.id
+      })
+
+      await CustomerContract.create({ 
+        startDate: new Date(2020, 1, 1), 
+        endDate: new Date(2025, 1, 1), 
+        contractPath:'/home/vcortez/Documentos/Repositorio/DevWeb/BackEnd/Contracts/Contract2.pdf',
+        CustomerUserId: customerUser2.id
+      })
+
+      await CustomerContract.create({ 
+        startDate: new Date(2025, 1, 1), 
+        endDate: new Date(2025, 12, 31), 
+        contractPath:'/home/vcortez/Documentos/Repositorio/DevWeb/BackEnd/Contracts/Contract3.pdf',
+        CustomerUserId: customerUser3.id
+      })
+
       return true
     } catch (error) {
       console.error(`Erro ao popular dados: ${error.message}`)
