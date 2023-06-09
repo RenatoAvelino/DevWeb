@@ -6,6 +6,7 @@ const porta = process.env.PORT
 
 const account_controller = require('./controllers/account-controller')
 const customerUser_controller = require('./controllers/customerUser-controller')
+const customerContract_controller = require('./controllers/customerContract-controller')
 
 const Account = require('./models/account')
 const CustomerUser = require('./models/customerUser')
@@ -19,6 +20,7 @@ app.use(cors())
 //Routes
 account_controller(app)
 customerUser_controller(app)
+customerContract_controller(app)
 
 app.get('/',(req,res)=>{
   res.status(200).send('Ola Mundo Express!')

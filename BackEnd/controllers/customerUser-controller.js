@@ -1,5 +1,3 @@
-const { DATE } = require('sequelize')
-const db = require('../db')
 const CustomerUser = require('../models/customerUser')
 
 const customerUserFields = ['id', 'login', 'category']
