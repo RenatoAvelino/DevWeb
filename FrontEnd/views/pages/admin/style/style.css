@@ -25,6 +25,10 @@ a {
 	color: var(--link-color);
 }
 
+#utils{
+	margin-left: 20px;
+}
+
 /*-------------------------Tabela-de-Mantenedores-----------------------------*/
 #ManteTable{
 	clear: both;
