@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <!--
+      =================PADRONIZADO=================
+    //-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" type="image/x-icon" href="/Imagens/sun32.ico">
+    <link href="/Styles/General.css" rel="stylesheet" type="text/css">
+    <script src="/Scripts/ScriptGeneral.js"></script>
+
+    <!--
+      =================ESPECIFICO=================
+    //-->
+    <link href="/pages/admin/style/style.css" rel="stylesheet" type="text/css">
+    <script src="/pages/admin/script.js"></script>
+    
+    <title>Follow The Solar</title>
+  </head>
+  <body>
+  <%- include('../../partials/header') %>
+
+  <h1> Lista de Mantenedores</h1>
+  <div id="utils">
+    <button type="submit" id="NewCompany">Adicionar Mantenedor</button>
+    <input type="text" placeholder="Buscar Mantenedor">
+  </div>
+  
+  <div id="ManteTable">
+    <table class="TabelaMante">
+      <tr>
+        <th>Mantenedor</th>
+        <th>Contrato</th>
+        <th>Ações</th>
+      </tr>
+      <tr>
+        <td>Full Lano Inc.</td>
+        <td>0147852333</td>
+        <td>
+          <button type="submit" id="Update">Update</button>
+          <button type="submit" id="Delete">Delete</button>
+          <button type="submit" id="View"><a href="/company" class="btn-link"> View</a></button>
+        </td>
+      </tr>
+      <tr>
+        <td>Bell Trano Corp.</td>
+        <td>0136938291</td>
+        <td>
+          <button type="submit" id="Update">Update</button>
+          <button type="submit" id="Delete">Delete</button>
+          <button type="submit" id="View"><a href="/company" class="btn-link"> View</a></button>
+        </td>
+      </tr>
+      <tr>
+        <td>Sys. Crano Inc.</td>
+        <td>0123458201</td>
+        <td>
+          <button type="submit" id="Update">Update</button>
+          <button type="submit" id="Delete">Delete</button>
+          <button type="submit" id="View"><a href="/company" class="btn-link"> View</a></button>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <%- include('../../partials/footer') %>
+  </body>
+</html>

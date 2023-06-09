@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <!--
+      =================PADRONIZADO=================
+    //-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" type="image/x-icon" href="/Imagens/sun32.ico">
+    <link href="/Styles/General.css" rel="stylesheet" type="text/css">
+    <script src="/Scripts/ScriptGeneral.js"></script>
+
+    <!--
+      =================ESPECIFICO=================
+    //-->
+    <link href="/pages/formscomp/style/style.css" rel="stylesheet" type="text/css">
+    <script src="/pages/formscomp/script.js"></script>
+
+    <title>Formulários</title>
+  </head>
+  <body>
+  <%- include('../../partials/header') %>
+
+  <div class="row">
+  <h2>Formulários Recebidos:</h2>
+   <button type="button" class="collapsible" onclick="ClickCollapse()">Form 1</button>
+  <div class="content">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+    <div id="buttons">
+      <button type="submit" id="AtualizarForm">Atualizar</button>
+      <button type="submit" id="ResponderForm">Responder</button>
+    </div>
+  </div>
+    <button type="button" class="collapsible" onclick="ClickCollapse()">Form 2</button>
+  <div class="content">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <div id="buttons">
+      <button type="submit" id="AtualizarForm">Atualizar</button>
+      <button type="submit" id="ResponderForm">Responder</button>
+    </div>
+  </div>
+   <button type="button" class="collapsible" onclick="ClickCollapse()">Form 3</button>
+  <div class="content">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <div id="buttons">
+      <button type="submit" id="AtualizarForm">Atualizar</button>
+      <button type="submit" id="ResponderForm">Responder</button>
+    </div>
+  </div>
+</div>
+
+  <%- include('../../partials/footer') %>
+  </body>
+</html>
