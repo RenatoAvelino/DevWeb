@@ -52,9 +52,23 @@ class Populate {
       })
 
 
-      await Account.create({ login: 'Vini', password: '1234', category:'Admin', CustomerUserId: customerUser1.id})
-      await Account.create({ login: 'Jonathan', password: 'Dio', category:'Customer', CustomerUserId: customerUser2.id})
-      await Account.create({ login: 'Joseph', password: 'Brando', category:'Company'})
+      await Account.create({ 
+        login: 'Vini', 
+        password: '1234', 
+        category:'Admin', 
+        CustomerUserId: customerUser1.id
+      })
+      await Account.create({ 
+        login: 'Jonathan', 
+        password: 'Dio', 
+        category:'Customer', 
+        CustomerUserId: customerUser2.id
+      })
+      await Account.create({ 
+        login: 'Joseph', 
+        password: 'Brando', 
+        category:'Company'
+      })
       return true
     } catch (error) {
       console.error(`Erro ao popular dados: ${error.message}`)

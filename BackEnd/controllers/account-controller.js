@@ -141,4 +141,23 @@ module.exports = function(app) {
         res.send(`erro: ${error.message}`)
       }
   })
+
+  app.post('/decode', (req, res) => {
+    const token = req.body.token // Obter o token JWT do corpo da solicitação
+
+    try {
+      const decoded = jwt.verify(token, process.env.SECRET) // Verificar e decodificar o token
+  
+      if (decoded && decoded.category) {
+        const category = decoded.category
+        res.status(200).send({ category }) // Retornar o campo "category" descriptografado
+      } else {
+        res.status(400).json({ error: 'Token JWT inválido ou sem campo "category"' })
+      }
+    } catch (error) {
+      console.error('Erro ao decodificar o token JWT:', error)
+      res.status(500).json({ error: 'Erro ao decodificar o token JWT' })
+    }
+  })
+  
 }
