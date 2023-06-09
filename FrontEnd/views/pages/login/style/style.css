@@ -38,14 +38,14 @@
 	transform: translateY(-50%) translateX(-50%);
   }
 
-  input{ color: var(--background-color); }
+  input{ color: black; }
 
   input[type=text], input[type=password] {
 	width: 100%;
 	padding: 12px 20px;
 	margin: 8px 0;
 	display: inline-block;
-	border: 1px solid var(--background-color-body);
+	border: 1px solid var(--box-shadow-colory);
 	box-sizing: border-box;
 	border-radius: 15px;
   }

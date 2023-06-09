@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <!--
+      =================PADRONIZADO=================
+    //-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" type="image/x-icon" href="/Imagens/sun32.ico">
+    <link href="/Styles/General.css" rel="stylesheet" type="text/css">
+    <script src="/Scripts/ScriptGeneral.js"></script>
+
+    <!--
+      =================ESPECIFICO=================
+    //-->
+    <link href="/pages/maincomp/style/style.css" rel="stylesheet" type="text/css">
+    <script src="/pages/maincomp/script.js"></script>
+    
+    <title>Follow The Solar</title>
+  </head>
+  <body>
+  <%- include('../../partials/header') %>
+
+  <div id="HisticForms">
+    <h2>Últimos Formulários Recebidos</h2>
+    <h3><a href="/company/forms">Ver historico completo</a></h3>
+    <table class="HFTable">
+      <tr>
+        <td>
+          <strong>Cliente ID:</strong>
+        </td>
+        <td>
+          <strong>Nome:</strong>
+        </td>
+        <td>
+          <strong >Data:</strong>
+        </td>
+        <td>
+          <strong >Tópico:</strong>
+        </td>
+        <td>
+          <strong>Status:</strong>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p>0147852369</p>
+        </td>
+        <td>
+          <p>Vinícius Rebouças Cortêz</p>
+        </td>
+        <td>
+          <p>05/05/2023</p> 
+        </td>
+        <td>
+          <p>Reparo de Modulo</p>
+        </td>
+        <td>
+          <p>Em Andamento</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p>0147854587</p>
+        </td>
+        <td>
+          <p>Renato Maia Avelino</p>
+        </td>
+        <td>
+          <p>03/05/2023</p>
+        </td>
+        <td>
+          <p>Erro na Fatura</p>
+        </td>
+        <td>
+          <p>Concluída</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p>0147852369</p>
+        </td>
+        <td>
+          <p>Vinícius Rebouças Cortêz</p>
+        </td>
+        <td>
+          <p>01/05/2023</p>
+        </td>
+        <td>
+          <p>Mudança de Endereço de RF</p>
+        </td>
+        <td>
+          <p>Concluída</p>
+        </td>
+      </tr>
+    <tr>
+      <td>
+        <p>0147852369</p>
+      </td>
+      <td>
+        <p>Vinícius Rebouças Cortêz</p>
+      </td>
+      <td>
+        <p>01/10/2022</p>
+      </td>
+      <td>
+        <p>Erro na Fatura</p>
+      </td>
+      <td>
+        <p>Aberta</p>
+      </td>
+    </tr>
+    </table>
+  </div>
+
+  <div id="ClientTable">
+    <h2> Lista de Clientes</h2>
+    <div id="utils">
+      <button type="submit" id="NewCustomer">Adicionar Cliente</button>
+      <input type="text" placeholder="Buscar Cliente">
+    </div>
+    <table class="HFTable">
+      <tr>
+        <th>Nome</th>
+        <th>Cliente ID:</th>
+        <th>Ações</th>
+      </tr>
+      <tr>
+        <td>Vinícius Rebouças Cortêz</td>
+        <td>0147852369</td>
+        <td>
+          <button type="submit" id="Update">Update</button>
+          <button type="submit" id="Delete">Delete</button>
+          <button type="submit" id="View">View</button>
+        </td>
+      </tr>
+      <tr>
+        <td>Renato Maia Avelino</td>
+        <td>0147854587</td>
+        <td>
+          <button type="submit" id="Update">Update</button>
+          <button type="submit" id="Delete">Delete</button>
+          <button type="submit" id="View">View</button>
+        </td>
+      </tr>
+      <tr>
+        <td>César Oliveira Lima</td>
+        <td>0147850413</td>
+        <td>
+          <button type="submit" id="Update">Update</button>
+          <button type="submit" id="Delete">Delete</button>
+          <button type="submit" id="View">View</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <%- include('../../partials/footer') %>
+  </body>
+</html>

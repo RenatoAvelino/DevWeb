@@ -24,22 +24,18 @@
 a {
 	color: var(--link-color);
 }
-
-#utils{
-	margin-left: 20px;
-}
-
-/*-------------------------Tabela-de-Mantenedores-----------------------------*/
-#ManteTable{
+/*-------------------------Tabela-de-Clientes-----------------------------*/
+#ClientTable{
 	clear: both;
     margin-left: 10px;
 	margin-right: 10px;
     margin-top: 10px;
     width: 99%;
     padding: 10px;
+	border-radius: 15px;
 }
 
-.TabelaMante {
+.TabelaClient{
 	width: 100%;
 	border-collapse: separate;
   	border-spacing: 0px;
@@ -64,8 +60,34 @@ button {
 	cursor: pointer;
 	border-radius: 15px;
 	--button-color: #E99347;
-  }
+}
 
 #Delete {
 	--button-color: #e95247;
 }
+
+/*-------------------------Historic-Forms------------------------------*/
+#HisticForms{
+	clear: both;
+    margin-left: 10px;
+	margin-right: 10px;
+    margin-top: 10px;
+    width: 99%;
+    padding: 10px;
+	border-radius: 15px;
+}
+
+.HFTable {
+	width: 100%;
+	border-collapse: separate;
+  	border-spacing: 0px;
+	margin: 0 auto;
+	padding: 20px;
+	box-shadow: 0 0 10px var(--box-shadow-color);;
+	background-color: var(--background-color);
+  	backdrop-filter: blur(5px);
+	text-align: left;
+	border-radius: 15px;
+}
+
+.HFTable td{ border: 1px solid var(--box-shadow-color);}

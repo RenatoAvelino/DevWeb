@@ -6,9 +6,8 @@ app.set('view engine', 'ejs')
 app.use(express.static(__dirname + '/views'));
 
 app.get('/', (req, res) => {
-    //res.render('pages/base/NaoFeitoAinda')
-    //res.render('pages/login/LoginPage')
-    res.render('pages/admin/AdminPage')
+    res.render('pages/login/LoginPage')
+    //res.render('pages/maincomp/MainPageC')
 })
 
 app.get('/main', (req, res) => {
@@ -37,6 +36,13 @@ app.get('/login', (req, res) => {
 
 app.get('/admin', (req, res) => {
     res.render('pages/admin/AdminPage')
+})
+
+app.get('/company', (req, res) => {
+    res.render('pages/maincomp/MainPageC')
+})
+app.get('/company/forms', (req, res) => {
+    res.render('pages/formscomp/FormsPageC')
 })
 
 app.listen(porta || 3000, async () => {
