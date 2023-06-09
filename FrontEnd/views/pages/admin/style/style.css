@@ -69,3 +69,8 @@ button {
 #Delete {
 	--button-color: #e95247;
 }
+
+.btn-link{
+	text-decoration: none;
+	color: var(--background-color-body);
+}

@@ -59,11 +59,17 @@ button {
 	border: none;
 	cursor: pointer;
 	border-radius: 15px;
+	text-decoration: none;
 	--button-color: #E99347;
 }
 
 #Delete {
 	--button-color: #e95247;
+}
+
+.btn-link{
+	text-decoration: none;
+	color: var(--background-color-body);
 }
 
 /*-------------------------Historic-Forms------------------------------*/
