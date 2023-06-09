@@ -23,8 +23,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             const data = JSON.parse(xhr.responseText)
             //Salva o token JWT
             localStorage.setItem("token", data.token)
-            // Navegar para a página "/main"
-            //window.location.href = "/main"
 
             // Verificar a categoria do usuário
             const endpointToken = "http://localhost:8000/decode"
@@ -43,11 +41,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             // Redirecionar com base na categoria
             if (category === "Admin") {
-                window.location.href = "/todo"; // Redirecionar para a página de administrador
+                window.location.href = "/todo" // Redirecionar para a página de administrador
             } else if (category === "Company") {
-                window.location.href = "/todo"; // Redirecionar para a página de usuário
+                window.location.href = "/todo" // Redirecionar para a página de usuário
             } else if (category === "Customer") {
-                window.location.href = "/main"; // Redirecionar para a página de usuário
+                window.location.href = "/main" // Redirecionar para a página de usuário
             } else {
                 // Categoria desconhecida
                 console.error("Categoria de usuário desconhecida");

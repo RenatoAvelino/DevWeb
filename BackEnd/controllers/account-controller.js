@@ -149,10 +149,13 @@ module.exports = function(app) {
       const decoded = jwt.verify(token, process.env.SECRET) // Verificar e decodificar o token
   
       if (decoded && decoded.category) {
-        const category = decoded.category
-        res.status(200).send({ category }) // Retornar o campo "category" descriptografado
+        const user = {
+          id: decoded.userid,
+          category: decoded.category
+        }
+        res.status(200).send({ user }) // Retornar os campos descriptografados
       } else {
-        res.status(400).json({ error: 'Token JWT inválido ou sem campo "category"' })
+        res.status(400).json({ error: 'Token JWT inválido' })
       }
     } catch (error) {
       console.error('Erro ao decodificar o token JWT:', error)
