@@ -34,16 +34,17 @@ document.addEventListener('DOMContentLoaded', async () => {
             const formDataToken = {
             token: data.token
             }
+
             xhrToken.send(JSON.stringify(formDataToken))
 
             const response = JSON.parse(xhrToken.response)
-            const category = response.category
+            const category = response.user.category
 
             // Redirecionar com base na categoria
             if (category === "Admin") {
-                window.location.href = "/todo" // Redirecionar para a página de administrador
+                window.location.href = "/admin" // Redirecionar para a página de administrador
             } else if (category === "Company") {
-                window.location.href = "/todo" // Redirecionar para a página de usuário
+                window.location.href = "/company" // Redirecionar para a página de usuário
             } else if (category === "Customer") {
                 window.location.href = "/main" // Redirecionar para a página de usuário
             } else {
@@ -52,7 +53,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         } else {
             const data = JSON.parse(xhr.responseText)
-            errorContainer.textContent = 'Erro:' + data.error
+            errorContainer.textContent = 'Erro: ' + data.error
             errorContainer.style.display = "block"
             throw new Error(data.error)
         }

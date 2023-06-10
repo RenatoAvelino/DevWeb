@@ -44,7 +44,7 @@ function alterarImagens() {
     })
       .then(res => res.json())
       .then(decodedToken => {
-        const userId = decodedToken.userid
+        const userId = decodedToken.user.id
         const endpointUser = "http://localhost:8000/customerUser-by-id/" + userId
         const endpointContract = "http://localhost:8000/customerContract-by-id/" + userId
   
