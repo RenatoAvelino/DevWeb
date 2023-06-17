@@ -17,6 +17,8 @@ function alterarImagens() {
   }
 
   document.addEventListener('DOMContentLoaded', () => {
+    const BaseUrl = 'http://localhost:8000'
+
     const name = document.getElementById("name")
     const phone = document.getElementById("phone")
     const cpf = document.getElementById("cpf")
@@ -33,7 +35,7 @@ function alterarImagens() {
     // Obter o token JWT do armazenamento local
     const token = localStorage.getItem("token")
   
-    const endpointDecodeToken = "http://localhost:8000/decode"
+    const endpointDecodeToken = BaseUrl + "/decode"
   
     const decodeTokenRequest = fetch(endpointDecodeToken, {
       method: "POST",
@@ -45,8 +47,8 @@ function alterarImagens() {
       .then(res => res.json())
       .then(decodedToken => {
         const userId = decodedToken.user.id
-        const endpointUser = "http://localhost:8000/customerUser-by-id/" + userId
-        const endpointContract = "http://localhost:8000/customerContract-by-id/" + userId
+        const endpointUser = BaseUrl + "/customerUser-by-id/" + userId
+        const endpointContract = BaseUrl + "/customerContract-by-id/" + userId
   
         const formatDate = (date) => {
           return new Intl.DateTimeFormat('pt-BR').format(new Date(date))

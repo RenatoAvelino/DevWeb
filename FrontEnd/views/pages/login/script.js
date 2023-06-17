@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', async () => {
+    const BaseUrl = 'http://localhost:8000'
+
     const clickLogButton = document.getElementById("ClickLog")
     const errorContainer = document.getElementById("errorContainer")
 
@@ -6,7 +8,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const username = document.getElementById("uname").value
         const password = document.getElementById("passw").value
 
-        const endpoint = "http://localhost:8000/login"
+        const endpoint = BaseUrl + "/login"
 
         const xhr = new XMLHttpRequest()
         xhr.open('POST', endpoint, false) // O terceiro parâmetro define a requisição síncrona
@@ -25,7 +27,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             localStorage.setItem("token", data.token)
 
             // Verificar a categoria do usuário
-            const endpointToken = "http://localhost:8000/decode"
+            const endpointToken = BaseUrl + "/decode"
 
             const xhrToken = new XMLHttpRequest()
             xhrToken.open('POST', endpointToken, false) 

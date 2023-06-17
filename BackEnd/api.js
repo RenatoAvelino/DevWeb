@@ -2,6 +2,7 @@ const express= require('express')
 const db = require('./db')
 const app = express()
 const cors = require('cors')
+require("dotenv-safe").config()
 const porta = process.env.PORT
 
 const account_controller = require('./controllers/account-controller')
