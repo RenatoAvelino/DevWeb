@@ -97,3 +97,11 @@ body {
 	right: 20px;
 	cursor: pointer;;
 }
+
+#sair{
+	position: absolute;
+	text-align: center;
+	top: 10px;
+	right: 20px;
+	cursor: pointer;
+}

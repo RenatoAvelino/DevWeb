@@ -102,3 +102,7 @@ function diminuirFonte(){
   }
 
 }
+
+function logOut(){
+  window.location.href = "/"
+}
