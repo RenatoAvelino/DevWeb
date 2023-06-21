@@ -1,12 +1,13 @@
 const Account = require('../models/account')
 
+const { verifyJWT, authenticate, authorizeCompany, authorizeAdmin } = require('../middlewares')
 require("dotenv-safe").config()
 
 
-const accountFields = ['id', 'login', 'category']
+const accountFields = ['id', 'login', 'category', 'CustomerUserId']
 
 module.exports = function(app) {
-    app.get('/get-all-accounts', async (req, res) =>{
+    app.get('/get-all-accounts', verifyJWT, authorizeCompany, async (req, res) =>{
       try {
         const accounts = await Account.findAll({
           attributes: accountFields
@@ -17,7 +18,7 @@ module.exports = function(app) {
       }
     })
 
-    app.get('/get-by-id/:id', async (req, res) =>{
+    app.get('/get-by-id/:id', verifyJWT, authenticate, async (req, res) =>{
       const { id } = req.params
       
       try {
@@ -50,7 +51,7 @@ module.exports = function(app) {
       }
     })
 
-    app.patch('/account-update/:id', async (req, res) => {
+    app.patch('/account-update/:id', verifyJWT, authenticate, async (req, res) => {
       const { id } = req.params
       const body = req.body
 
@@ -78,7 +79,7 @@ module.exports = function(app) {
       }
     })
         
-    app.delete('/account-delete/:id', async (req, res) => {
+    app.delete('/account-delete/:id', verifyJWT, authenticate, async (req, res) => {
       const { id } = req.params
 
       try {
