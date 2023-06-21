@@ -1,9 +1,10 @@
 const CustomerContract = require('../models/customerContract')
+const { verifyJWT, authenticate, authorizeCompany, authorizeAdmin } = require('../middlewares')
 
 const customerContractFields = ['id', 'startDate', 'endDate']
 
 module.exports = function(app) {
-  app.get('/customerContract-by-id/:id', async (req, res) => {
+  app.get('/customerContract-by-id/:id', verifyJWT, authenticate, async (req, res) => {
     const { id } = req.params
 
     try {

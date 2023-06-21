@@ -2,7 +2,13 @@ const express= require('express')
 const db = require('./db')
 const app = express()
 const cors = require('cors')
+
 require("dotenv-safe").config()
+const crypto = require('crypto')
+const jwt = require('jsonwebtoken')
+
+const { verifyJWT, authenticate, authorizeCompany, authorizeAdmin } = require('./middlewares')
+
 const porta = process.env.PORT
 
 const account_controller = require('./controllers/account-controller')
@@ -17,15 +23,6 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cors())
 
-
-//Routes
-account_controller(app)
-customerUser_controller(app)
-customerContract_controller(app)
-
-app.get('/',(req,res)=>{
-  res.status(200).send('Ola Mundo Express!')
-})
 
 class Populate {
   static async popularDados() {
@@ -127,6 +124,65 @@ app.get('/popular', async (req, res) => {
     res.status(500).send(`Erro ao popular dados: ${error.message}`)
   }
 })
+
+app.post('/login', async (req, res) => {
+  const password = req.body.password
+  const login = req.body.login
+
+  // Função para verificar se a senha é válida
+  function verifyPassword(password, hashedPassword) {
+    if (!hashedPassword) {
+      return false
+    }
+    const [salt, hash] = hashedPassword.split(':')
+    const verifyHash = crypto.pbkdf2Sync(password, salt, 1000, 64, 'sha512').toString('hex')
+    return hash === verifyHash
+  }
+
+  try {
+    // Encontre a conta com o login fornecido
+    const account = await Account.findOne({ where: { login } })
+  
+    // Verifique se a conta existe
+    if (!account) {
+      // Conta não encontrada
+      return res.status(401).json({ error: 'Conta Inexistente' })
+    }
+
+    // Verifique se a senha fornecida é válida
+    if (!verifyPassword(password, account.password)) {
+      return res.status(401).json({ error: 'usuário e/ou senha inválidos'})
+    } else {
+        const token = jwt.sign(
+            { 
+              userid: account.id,
+              username: account.login,
+              category: account.category
+            }, // payload (podem ser colocadas outras infos)
+            process.env.SECRET, // chave definida em .env
+            { expiresIn: 10*60 }  // em segundos
+        )
+        return res.json({ auth: true, token })
+    }
+  } catch (error) {
+    res.send(`erro: ${error.message}`)
+  }
+})
+
+app.get('/decode', verifyJWT, (req, res) => {
+res.status(200).send(req.user)
+})
+
+app.get('/admin-only', verifyJWT, authorizeAdmin, (req, res) => {
+res.json({ message: 'Acesso permitido apenas para administradores' })
+})
+
+
+//Routes
+account_controller(app)
+customerUser_controller(app)
+customerContract_controller(app)
+
 
 app.listen(porta || 8000, async () => {
   try {
