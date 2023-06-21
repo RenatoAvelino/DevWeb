@@ -30,18 +30,18 @@ document.addEventListener('DOMContentLoaded', async () => {
             const endpointToken = BaseUrl + "/decode"
 
             const xhrToken = new XMLHttpRequest()
-            xhrToken.open('POST', endpointToken, false) 
+            xhrToken.open('GET', endpointToken, false)
             xhrToken.setRequestHeader('Content-Type', 'application/json')
 
-            const formDataToken = {
-            token: data.token
-            }
+            const token = "Bearer " + data.token; // Adiciona o prefixo "Bearer" ao token
 
-            xhrToken.send(JSON.stringify(formDataToken))
+            xhrToken.setRequestHeader('Authorization', token); // Define o token no header
 
+            xhrToken.send()
+            
             const response = JSON.parse(xhrToken.response)
-            const category = response.user.category
-
+            console.log(response)
+            const category = response.category
             // Redirecionar com base na categoria
             if (category === "Admin") {
                 window.location.href = "/admin" // Redirecionar para a página de administrador
