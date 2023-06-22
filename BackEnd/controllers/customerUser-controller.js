@@ -1,9 +1,10 @@
 const CustomerUser = require('../models/customerUser')
+const { verifyJWT, authenticate, authorizeCompany, authorizeAdmin } = require('../middlewares')
 
 const customerUserFields = ['id', 'login', 'category']
 
 module.exports = function(app) {
-  app.get('/customerUser-by-id/:id', async (req, res) => {
+  app.get('/customerUser-by-id/:id', verifyJWT, authenticate, async (req, res) => {
     const { id } = req.params
 
     try {
