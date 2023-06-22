@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (xhr.status === 200) {
             const data = JSON.parse(xhr.responseText)
             //Salva o token JWT
-            localStorage.setItem("token", data.token)
+            localStorage.setItem("token", "Bearer " + data.token)
 
             // Verificar a categoria do usuário
             const endpointToken = BaseUrl + "/decode"
@@ -33,21 +33,24 @@ document.addEventListener('DOMContentLoaded', async () => {
             xhrToken.open('GET', endpointToken, false)
             xhrToken.setRequestHeader('Content-Type', 'application/json')
 
-            const token = "Bearer " + data.token; // Adiciona o prefixo "Bearer" ao token
+            const token = "Bearer " + data.token // Adiciona o prefixo "Bearer" ao token
 
             xhrToken.setRequestHeader('Authorization', token); // Define o token no header
 
             xhrToken.send()
             
             const response = JSON.parse(xhrToken.response)
-            console.log(response)
+
             const category = response.category
             // Redirecionar com base na categoria
             if (category === "Admin") {
-                window.location.href = "/admin" // Redirecionar para a página de administrador
+                localStorage.setItem('AdminId', response.id) 
+                window.location.href = "/admin"   // Redirecionar para a página de administrador
             } else if (category === "Company") {
+                localStorage.setItem('CompanyId', response.id)
                 window.location.href = "/company" // Redirecionar para a página de usuário
             } else if (category === "Customer") {
+                localStorage.setItem('CustomerId', response.id)
                 window.location.href = "/main" // Redirecionar para a página de usuário
             } else {
                 // Categoria desconhecida
