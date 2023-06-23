@@ -32,28 +32,16 @@ class Populate {
 
       //CustumerUsers:
       const customerUser1 = await CustomerUser.create({ 
-        name: 'Vinicius Cortêz', 
-        phone: '+55 85 9987654321', 
-        cpf:'000.111.222-33',
-        birthday:new Date(2000, 5, 15),
-        address:'Rua A, Numero B, Bairro C, Cidade D',
-        email:'meuemail@gmail.com',
-        bankAccount:'1234567-8',
-        gender:'Masculino',
-        language:'Português', 
-      })
-
-      const customerUser2 = await CustomerUser.create({ 
         name: 'Jonathan Joestar', 
         phone: '+55 85 91234-56789', 
         cpf:'444.555.666-77',
         address:'Rua E, Numero F, Bairro G, Cidade H',
-        email:'jojo@gmail.com',
+        email:'jojo1@gmail.com',
         bankAccount:'8765432-1',
         gender:'Masculino',
       })
 
-      const customerUser3 = await CustomerUser.create({ 
+      const customerUser2 = await CustomerUser.create({ 
         name: 'Joseph Joestar', 
         phone: '+55 85 91234-56789', 
         cpf:'444.555.666-77',
@@ -63,23 +51,45 @@ class Populate {
         gender:'Masculino',
       })
 
+      const customerUser3 = await CustomerUser.create({ 
+        name: 'Kujoh Jotaro', 
+        phone: '+55 85 9987654321', 
+        cpf:'000.111.222-33',
+        birthday:new Date(2000, 5, 15),
+        address:'Rua A, Numero B, Bairro C, Cidade D',
+        email:'jojo3@gmail.com',
+        bankAccount:'1234567-8',
+        gender:'Masculino',
+        language:'Japonês', 
+      })
+
       //Accounts:
       await Account.create({ 
         login: 'Vini', 
         password: '1234', 
-        category:'Admin', 
+        category:'Admin'
+      })
+      await Account.create({ 
+        login: 'Kujoh Jolyne', 
+        password: 'Brando', 
+        category:'Company'
+      })
+      await Account.create({ 
+        login: 'Jojo1', 
+        password: 'Dio', 
+        category:'Customer', 
         CustomerUserId: customerUser1.id
       })
       await Account.create({ 
-        login: 'Jonathan', 
+        login: 'Jojo2', 
         password: 'Dio', 
-        category:'Customer', 
+        category:'Customer',
         CustomerUserId: customerUser2.id
       })
       await Account.create({ 
-        login: 'Joseph', 
-        password: 'Brando', 
-        category:'Company',
+        login: 'Jojo3', 
+        password: 'Dio', 
+        category:'Customer',
         CustomerUserId: customerUser3.id
       })
 

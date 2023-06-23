@@ -44,13 +44,13 @@ document.addEventListener('DOMContentLoaded', async () => {
             const category = response.category
             // Redirecionar com base na categoria
             if (category === "Admin") {
-                localStorage.setItem('AdminId', response.id) 
+                localStorage.setItem('adminId', response.id) 
                 window.location.href = "/admin"   // Redirecionar para a página de administrador
             } else if (category === "Company") {
-                localStorage.setItem('CompanyId', response.id)
+                localStorage.setItem('companyId', response.id)
                 window.location.href = "/company" // Redirecionar para a página de usuário
             } else if (category === "Customer") {
-                localStorage.setItem('CustomerId', response.id)
+                localStorage.setItem('customerId', response.id)
                 window.location.href = "/main" // Redirecionar para a página de usuário
             } else {
                 // Categoria desconhecida

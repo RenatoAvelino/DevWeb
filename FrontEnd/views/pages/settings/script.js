@@ -34,7 +34,7 @@ function alterarImagens() {
   
     // Obter o token JWT do armazenamento local
     const token = localStorage.getItem("token")
-    const userId = localStorage.getItem("CustomerId")
+    const userId = localStorage.getItem("customerId")
 
     const endpointUser = BaseUrl + "/customerUser-by-id/" + userId
     const endpointContract = BaseUrl + "/customerContract-by-id/" + userId
@@ -58,16 +58,22 @@ function alterarImagens() {
         name.innerHTML = dados.name
         phone.innerHTML = dados.phone
         cpf.innerHTML = dados.cpf
-        birthday.innerHTML = formatDate(dados.birthday)
+        if(dados.birthday){
+          birthday.innerHTML = formatDate(dados.birthday)
+        }
         address.innerHTML = dados.address
         email.innerHTML = dados.email
-        bankAccount.innerHTML = dados.bankAccount
-        gender.innerHTML = dados.gender
-        language.innerHTML = dados.language
+        bankAccount.innerHTML = dados.bank_account
+        if(dados.gender){
+          gender.innerHTML = dados.gender
+        }
+        if(dados.language){
+          language.innerHTML = dados.language
+        }
       })
       .catch(error => {
         console.error(`Erro ao carregar as informações do Usuário: ${error.message}`)
-        window.location.href = "/" // Redirecionar para a página "/"
+        //window.location.href = "/" // Redirecionar para a página "/"
       })
 
     const contractRequest = fetch(endpointContract, { headers })
@@ -85,7 +91,7 @@ function alterarImagens() {
       })
       .catch(error => {
         console.error(`Erro ao carregar as informações do Contrato: ${error.message}`)
-        window.location.href = "/" // Redirecionar para a página "/"
+        //window.location.href = "/main" // Redirecionar para a página "/"
       })
 
     return Promise.all([userRequest, contractRequest])
