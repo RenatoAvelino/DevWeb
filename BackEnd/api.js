@@ -97,21 +97,21 @@ class Populate {
       await CustomerContract.create({ 
         startDate: new Date(2023, 1, 1), 
         endDate: new Date(2025, 1, 1), 
-        contractPath:'/home/vcortez/Documentos/Repositorio/DevWeb/BackEnd/Contracts/Contract1.pdf',
+        contractPath:'/pdf/contrato-1.pdf',
         CustomerUserId: customerUser1.id
       })
 
       await CustomerContract.create({ 
         startDate: new Date(2020, 1, 1), 
         endDate: new Date(2025, 1, 1), 
-        contractPath:'/home/vcortez/Documentos/Repositorio/DevWeb/BackEnd/Contracts/Contract2.pdf',
+        contractPath:'/pdf/contrato-2.pdf',
         CustomerUserId: customerUser2.id
       })
 
       await CustomerContract.create({ 
         startDate: new Date(2025, 1, 1), 
         endDate: new Date(2025, 12, 31), 
-        contractPath:'/home/vcortez/Documentos/Repositorio/DevWeb/BackEnd/Contracts/Contract3.pdf',
+        contractPath:'/pdf/contrato-3.pdf',
         CustomerUserId: customerUser3.id
       })
 
