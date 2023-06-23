@@ -1,20 +1,20 @@
 function alterarImagens() {
-    const html = document.querySelector('html');
-    const imgs = Array.from(document.getElementsByClassName("ButtonImages"));
-    const temaAtual = html.classList.contains('dark-mode') ? 'dark' : 'light';
-  
-    imgs.forEach((img) => {
-      const src = img.src;
-  
-      if (temaAtual === 'light' && !src.includes('-white.png')) {
-        const newSrc = src.replace('.png', '-white.png');
-        img.src = newSrc;
-      } else if (temaAtual === 'dark' && src.includes('-white.png')) {
-        const newSrc = src.replace('-white.png', '.png');
-        img.src = newSrc;
-      }
-    });
-  }
+  const html = document.querySelector('html')
+  const imgs = Array.from(document.getElementsByClassName("ButtonImages"))
+  const temaAtual = html.classList.contains('dark-mode') ? 'dark' : 'light'
+
+  imgs.forEach((img) => {
+    const src = img.src
+
+    if (temaAtual === 'light' && !src.includes('-white.png')) {
+      const newSrc = src.replace('.png', '-white.png')
+      img.src = newSrc
+    } else if (temaAtual === 'dark' && src.includes('-white.png')) {
+      const newSrc = src.replace('-white.png', '.png')
+      img.src = newSrc
+    }
+  })
+}
 
   document.addEventListener('DOMContentLoaded', () => {
     const BaseUrl = 'http://localhost:8000'
@@ -73,7 +73,7 @@ function alterarImagens() {
       })
       .catch(error => {
         console.error(`Erro ao carregar as informações do Usuário: ${error.message}`)
-        //window.location.href = "/" // Redirecionar para a página "/"
+        window.location.href = "/" // Redirecionar para a página "/"
       })
 
     const contractRequest = fetch(endpointContract, { headers })
@@ -91,9 +91,20 @@ function alterarImagens() {
       })
       .catch(error => {
         console.error(`Erro ao carregar as informações do Contrato: ${error.message}`)
-        //window.location.href = "/main" // Redirecionar para a página "/"
+        window.location.href = "/main" // Redirecionar para a página "/"
       })
 
+    document.getElementById('BDownload').addEventListener('click', handleDownloadClick)
+
     return Promise.all([userRequest, contractRequest])
+
+    function handleDownloadClick() {
+      const customerId = localStorage.getItem('customerId')
+      if (customerId) {
+        const downloadLink = `/download/${customerId}`
+        window.location.href = downloadLink
+      } else {
+        console.log('customerId não encontrado no localStorage')
+      }
+    }    
 })
-  

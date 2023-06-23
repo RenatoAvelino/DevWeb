@@ -44,6 +44,13 @@ app.get('/company/forms', (req, res) => {
     res.render('pages/formscomp/FormsPageC')
 })
 
+app.get('/download/:customerId', (req, res) => {
+    const { customerId } = req.params
+    const fileName = `contrato-${customerId}.pdf`
+    const file = __dirname + `/pdf/${fileName}`
+    res.download(file)
+})
+
 app.listen(porta || 3000, async () => {
     try {
       console.log(`Servidor rodando em http://localhost:${porta || 3000}`)
