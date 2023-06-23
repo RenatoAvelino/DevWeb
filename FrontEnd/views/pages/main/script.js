@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
     // Obtem variaveis do armazenamento local
     const token = localStorage.getItem("token")
-    const userId = localStorage.getItem("CustomerId")
+    const userId = localStorage.getItem("customerId")
 
     const endpointUser = BaseUrl + "/customerUser-by-id/" + userId
 

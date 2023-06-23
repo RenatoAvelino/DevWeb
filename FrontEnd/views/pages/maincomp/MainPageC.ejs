@@ -114,7 +114,7 @@
   </div>
 
   <div id="ClientTable">
-    <h2> Lista de Clientes</h2>
+    <h2>Lista de Clientes</h2>
     <div id="utils">
       <button type="submit" id="NewCustomer">Adicionar Cliente</button>
       <input type="text" placeholder="Buscar Cliente">
@@ -125,35 +125,13 @@
         <th>Cliente ID:</th>
         <th>Ações</th>
       </tr>
-      <tr>
-        <td>Vinícius Rebouças Cortêz</td>
-        <td>0147852369</td>
-        <td>
-          <button type="submit" id="View"><a href="/settings" class="btn-link">Update</a></button>
-          <button type="submit" id="Delete">Delete</button>
-          <button type="submit" id="View"><a href="/reports" class="btn-link"> View</a></button>
-        </td>
-      </tr>
-      <tr>
-        <td>Renato Maia Avelino</td>
-        <td>0147854587</td>
-        <td>
-          <button type="submit" id="View"><a href="/settings" class="btn-link">Update</a></button>
-          <button type="submit" id="Delete">Delete</button>
-          <button type="submit" id="View"><a href="/reports" class="btn-link"> View</a></button>
-        </td>
-      </tr>
-      <tr>
-        <td>César Oliveira Lima</td>
-        <td>0147850413</td>
-        <td>
-          <button type="submit" id="View"><a href="/settings" class="btn-link">Update</a></button>
-          <button type="submit" id="Delete">Delete</button>
-          <button type="submit" id="View"><a href="/reports" class="btn-link"> View</a></button>
-        </td>
-      </tr>
     </table>
-  </div>
+  </div>  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      addClientesToTable();
+    });
+  </script>
 
   <%- include('../../partials/footer') %>
   </body>
