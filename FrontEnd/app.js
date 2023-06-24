@@ -51,6 +51,10 @@ app.get('/download/:customerId', (req, res) => {
     res.download(file)
 })
 
+app.get('/data', (req, res) => {
+    res.sendFile(__dirname + '/SolarData1.csv');
+})
+
 app.listen(porta || 3000, async () => {
     try {
       console.log(`Servidor rodando em http://localhost:${porta || 3000}`)
