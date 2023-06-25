@@ -24,52 +24,49 @@ window.addEventListener('DOMContentLoaded', function () {
   function createChart() {
     var fromDate = moment().subtract(1, 'day').startOf('day').format('YYYY-MM-DD HH:mm')
     var toDate = moment().endOf('day').format('YYYY-MM-DD HH:mm')
-
+  
     // Verificar se as datas foram preenchidas no formulário
     var deInput = document.getElementById('de')
     var ateInput = document.getElementById('ate')
-
+  
     if (deInput.value && ateInput.value) {
       fromDate = moment(deInput.value, 'DD/MM/YYYY').startOf('day').format('YYYY-MM-DD HH:mm')
       toDate = moment(ateInput.value, 'DD/MM/YYYY').endOf('day').format('YYYY-MM-DD HH:mm')
     }
-
+  
     // Carregue os dados do arquivo CSV usando a biblioteca d3.js
     d3.csv('/data').then(function (data) {
       // Formate as datas no formato correto
       var parseDate = d3.timeParse('%Y-%m-%d %H:%M:%S')
+      var formattedDates = []
+      var acPowerValues = []
+
       data.forEach(function (d) {
         d.DATE_TIME = parseDate(d.DATE_TIME)
         d.AC_POWER = +d.AC_POWER
-      })
 
-      // Filtrar os dados pelo período selecionado
-      data = data.filter(function (d) {
-        return moment(d.DATE_TIME).isBetween(fromDate, toDate)
+        formattedDates.push(d.DATE_TIME)
+        acPowerValues.push(d.AC_POWER)
       })
-
-      // Agrupe os dados pela data e calcule a soma da AC_POWER
-      var groupedData = d3.group(data, function (d) {
-        return d.DATE_TIME
-      })
-      var aggregatedData = Array.from(groupedData, function ([key, values]) {
-        return { DATE_TIME: key, AC_POWER: d3.sum(values, function (d) { return d.AC_POWER }) }
-      })
-
+      console.log(formattedDates)
+      console.log(acPowerValues)
+  
       // Extrai as datas e os valores da AC_POWER em arrays separados
-      var labels = aggregatedData.map(function (d) { return d.DATE_TIME })
-      var values = aggregatedData.map(function (d) { return d.AC_POWER })
-
+      var labels = data.map(function (d) { return moment(d.DATE_TIME).format('HH:mm:ss') })
+      var values = data.map(function (d) { return d.AC_POWER })
+      console.log(labels)
+      console.log(values)
+  
       // Cria um elemento canvas para renderizar o gráfico
       var canvas = document.createElement('canvas')
       document.getElementById('Graf').appendChild(canvas)
-
+  
       // Cria o gráfico usando Chart.js
       var ctx = canvas.getContext('2d')
       new Chart(ctx, {
         type: 'line',
         data: {
-          labels: labels.map(function (d) { return moment(d).format('HH:mm:ss') }),
+          labels: labels,
           datasets: [{
             label: 'AC_POWER',
             data: values,
@@ -91,13 +88,17 @@ window.addEventListener('DOMContentLoaded', function () {
               }
             },
             y: {
-              beginAtZero: true
+              beginAtZero: true,
+              title: {
+                display: true,
+                text: 'AC Power'
+              }
             }
           }
         }
       })
     })
   }
-
+  
   createChart()
 })
