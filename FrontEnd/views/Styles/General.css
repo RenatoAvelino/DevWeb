@@ -44,6 +44,7 @@ body, html {
 	color: var(--header-and-footer-color);
 	text-decoration: none;
 }
+#HeaderTitle {cursor: pointer}
 
 header, footer{
 	padding: 10px;
@@ -95,7 +96,7 @@ body {
 	position: absolute;
 	bottom: 5px;
 	right: 20px;
-	cursor: pointer;;
+	cursor: pointer;
 }
 
 #sair{

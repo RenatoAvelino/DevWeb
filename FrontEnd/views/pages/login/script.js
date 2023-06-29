@@ -1,13 +1,19 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const BaseUrl = 'http://localhost:8000'
-
-    const clickLogButton = document.getElementById("ClickLog")
-    const errorContainer = document.getElementById("errorContainer")
+    const passwInput = document.getElementById('passw');
+    const clickLogButton = document.getElementById('ClickLog');
+    const errorContainer = document.getElementById('errorContainer');
+  
+    passwInput.addEventListener('keydown', function(event) {
+      if (event.key === 'Enter') {
+        clickLogButton.click()
+      }
+    })
 
     clickLogButton.addEventListener("click", () => {
         const username = document.getElementById("uname").value
         const password = document.getElementById("passw").value
 
+        const BaseUrl = 'http://localhost:8000'
         const endpoint = BaseUrl + "/login"
 
         const xhr = new XMLHttpRequest()
@@ -64,4 +70,3 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     })
 })
-  

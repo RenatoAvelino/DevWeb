@@ -20,7 +20,9 @@ window.addEventListener('DOMContentLoaded', function () {
   const moment = window.moment
 
   const BaseUrl = 'http://localhost:8000'
-  const EndPoint = BaseUrl + '/solardata'
+
+  const userId = localStorage.getItem("customerId")
+  const EndPoint = BaseUrl + '/solardata/' + userId
   Chart.register(ChartDataLabels)
 
   function createChart() { 
