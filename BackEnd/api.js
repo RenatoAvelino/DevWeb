@@ -187,6 +187,10 @@ app.get('/admin-only', verifyJWT, authorizeAdmin, (req, res) => {
 res.json({ message: 'Acesso permitido apenas para administradores' })
 })
 
+app.get('/solardata', (req, res) => {
+  res.sendFile(__dirname + '/SolarData/SolarData1.csv');
+})
+
 
 //Routes
 account_controller(app)
