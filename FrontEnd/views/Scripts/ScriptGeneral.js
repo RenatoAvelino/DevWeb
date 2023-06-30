@@ -106,3 +106,44 @@ function diminuirFonte(){
 function logOut(){
   window.location.href = "/"
 }
+
+function goToMain(){
+  const BaseUrl = 'http://localhost:8000'
+  const endpoint = BaseUrl + "/decode/"
+
+  const token = localStorage.getItem("token")
+  const headers = {
+    Authorization: token
+  }
+  
+  fetch(endpoint, { headers })
+    .then(res => {
+      if (res.status === 200) {
+        return res.text()
+      } else {
+        throw new Error(`Status da requisição: ${res.status}`)
+      }
+    })
+    .then(res =>{
+      const data = JSON.parse(res)
+
+      // Redirecionar com base na categoria
+      if (data.category === "Admin") {
+        localStorage.setItem('adminId', data.id) 
+        window.location.href = "/admin"   // Redirecionar para a página de administrador
+      } else if (data.category === "Company") {
+          localStorage.setItem('companyId', data.id)
+          window.location.href = "/company" // Redirecionar para a página de usuário
+      } else if (data.category === "Customer") {
+          localStorage.setItem('customerId', data.id)
+          window.location.href = "/main" // Redirecionar para a página de usuário
+      } else {
+          // Categoria desconhecida
+          console.error("Categoria de usuário desconhecida");
+      }
+    })
+    .catch(error => {
+      console.error(`Erro: ${error.message}`)
+      //window.location.href = "/" // Redirecionar para a página "/"
+    })
+}

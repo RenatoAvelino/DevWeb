@@ -163,9 +163,18 @@ app.post('/login', async (req, res) => {
     if (!verifyPassword(password, account.password)) {
       return res.status(401).json({ error: 'usuário e/ou senha inválidos'})
     } else {
+        if(account.category == "Admin"){
+          var userId = account.id 
+        } else if(account.category == "Company"){
+          var userId = account.id 
+        } else if(account.category == "Customer"){
+          var userId = account.CustomerUserId 
+        } else{
+          var userId = 0
+        }
         const token = jwt.sign(
             { 
-              userid: account.id,
+              userid: userId,
               username: account.login,
               category: account.category
             }, // payload (podem ser colocadas outras infos)
@@ -185,6 +194,12 @@ res.status(200).send(req.user)
 
 app.get('/admin-only', verifyJWT, authorizeAdmin, (req, res) => {
 res.json({ message: 'Acesso permitido apenas para administradores' })
+})
+
+app.get('/solardata/:id', (req, res) => {
+  const { id } = req.params
+  const caminho = '/SolarData/SolarData' + id + '.csv'
+  res.sendFile(__dirname + caminho)
 })
 
 
