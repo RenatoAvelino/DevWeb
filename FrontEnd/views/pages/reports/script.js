@@ -33,6 +33,18 @@ window.addEventListener('DOMContentLoaded', function () {
         var parsedData = d3.csvParse(csvData)
         var data = parsedData
 
+        var acPowerValues = data.map(d => +d.AC_POWER) // Extrai os valores de AC_POWER como números
+
+        // Calcula a soma total da AC_POWER em Watts
+        var totalACPower = d3.sum(acPowerValues)
+
+        var firstDateTime = moment(data[0].DATE_TIME, 'YYYY-MM-DD HH:mm')
+        var lastDateTime = moment(data[data.length - 1].DATE_TIME, 'YYYY-MM-DD HH:mm')
+        var diffHours = lastDateTime.diff(firstDateTime, 'hours')
+
+        // Calcula o KWHTotal
+        var KWHTotal = totalACPower * diffHours / 1000
+
         var formattedDates = []
         var acPowerValues = []
 
@@ -70,6 +82,15 @@ window.addEventListener('DOMContentLoaded', function () {
       }, function (d) {
         return moment(d.DATE_TIME).format('YYYY-MM-DD HH:mm')
       })
+
+      // Obtém o valor total da AC_POWER
+      var totalACPower = d3.sum(Array.from(groupedData.values()))
+
+      var diffHours = Math.abs(toDate - fromDate) / 36e5;
+
+      var KWH = totalACPower*diffHours/1000
+
+      atualizarNumbers(KWH, KWHTotal)
 
       var aggregatedData = Array.from(groupedData, function ([key, value]) {
         return { DATE_TIME: key, AC_POWER: value }
@@ -158,4 +179,36 @@ window.addEventListener('DOMContentLoaded', function () {
   }
   
   createChart()
+
+  async function atualizarNumbers(KWH, KWHTotal){
+      try{
+        const gerado = document.getElementById("Gerado")
+        const dinheiro = document.getElementById("Dinheiro")
+        const carvao = document.getElementById("Carvao")
+        const arvore = document.getElementById("Arvore")
+        const co = document.getElementById("CO2")
+        
+        
+        let _co = 0.0426*KWHTotal
+        let _carvao = _co/2.86
+
+        let _arvore = Math.round(_co/10)
+        
+        let _dinheiro = 0.709*KWH
+        
+        let _KWH = KWH.toFixed(2) 
+        _dinheiro = _dinheiro.toFixed(2)
+        _co = _co.toFixed(2)
+        _carvao = _carvao.toFixed(2)
+
+        gerado.innerHTML = _KWH
+        dinheiro.innerHTML = _dinheiro
+        carvao.innerHTML = _carvao
+        arvore.innerHTML = _arvore
+        co.innerHTML = _co
+    }
+    catch (error) {
+      console.error('Ocorreu um erro:', error)
+    }
+  }
 })

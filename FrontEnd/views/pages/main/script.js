@@ -33,8 +33,5 @@ document.addEventListener('DOMContentLoaded', () => {
       .catch(error => {
         console.error(`Erro ao carregar as informações do Usuário: ${error.message}`)
         window.location.href = "/" // Redirecionar para a página "/"
-      })
-  
-       
-      
+      })        
 })
