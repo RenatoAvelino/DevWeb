@@ -19,13 +19,15 @@ function alterarImagens() {
 window.addEventListener('DOMContentLoaded', function () {
   const moment = window.moment
 
+  const clickFilterButton = document.getElementById('Filtrar');
+
   const BaseUrl = 'http://localhost:8000'
 
   const userId = localStorage.getItem("customerId")
   const EndPoint = BaseUrl + '/solardata/' + userId
   Chart.register(ChartDataLabels)
 
-  function createChart() { 
+  function createChart(deInput = 0, ateInput = 0) { 
     fetch(EndPoint)
       .then(response => response.text())
       // Carregue os dados do arquivo CSV usando a biblioteca d3.js
@@ -47,22 +49,22 @@ window.addEventListener('DOMContentLoaded', function () {
 
         var formattedDates = []
         var acPowerValues = []
-
-        // Verificar se as datas foram preenchidas no formulário
-        var deInput = document.getElementById('de')
-        var ateInput = document.getElementById('ate')
       
-        if (deInput.value && ateInput.value) {
-          var fromDate = moment(deInput.value, 'DD/MM/YYYY').startOf('day').format('YYYY-MM-DD HH:mm')
-          var toDate = moment(ateInput.value, 'DD/MM/YYYY').endOf('day').format('YYYY-MM-DD HH:mm')
+        if (deInput != 0 && ateInput != 0) {
+          deInput = new Date(deInput)
+          ateInput = new Date(ateInput)
+
+          var fromDate = moment(deInput, 'DD/MM/YYYY').add(3, 'hours')
+          fromDate = fromDate.startOf('day').format('YYYY-MM-DD HH:mm')
+          var toDate = moment(ateInput, 'DD/MM/YYYY').endOf('day').format('YYYY-MM-DD HH:mm')
         } else{
           var lastDate = data[data.length - 1]
           var toDate = moment(lastDate.DATE_TIME, 'YYYY-MM-DD HH:mm')
           var fromDate = toDate.clone().subtract(0, 'day').startOf('day')
-        }
 
-        fromDate = new Date(fromDate._d)
-        toDate = new Date(toDate._d)
+          fromDate = new Date(fromDate._d)
+          toDate = new Date(toDate._d)
+        }
 
         // Filtrar os dados pelo período selecionado
         data = data.filter(function (d) {
@@ -102,11 +104,12 @@ window.addEventListener('DOMContentLoaded', function () {
     
       // Cria um elemento canvas para renderizar o gráfico
       var canvas = document.createElement('canvas')
+      canvas.setAttribute('id', 'canvas')
       document.getElementById('Graf').appendChild(canvas)
 
       // Cria o gráfico usando Chart.js
       var ctx = canvas.getContext('2d')
-      new Chart(ctx, {
+      var myChart = new Chart(ctx, {
         type: 'line',
         data: {
           labels: labels,
@@ -175,10 +178,12 @@ window.addEventListener('DOMContentLoaded', function () {
         }
       })
 
-      })
+    })
+
   }
-  
+
   createChart()
+  
 
   async function atualizarNumbers(KWH, KWHTotal){
       try{
@@ -195,7 +200,7 @@ window.addEventListener('DOMContentLoaded', function () {
         let _arvore = Math.round(_co/10)
         
         let _dinheiro = 0.709*KWH
-        
+
         let _KWH = KWH.toFixed(2) 
         _dinheiro = _dinheiro.toFixed(2)
         _co = _co.toFixed(2)
@@ -211,4 +216,19 @@ window.addEventListener('DOMContentLoaded', function () {
       console.error('Ocorreu um erro:', error)
     }
   }
+
+  clickFilterButton.addEventListener("click", () => {
+    // Verificar se as datas foram preenchidas no formulário
+    var deInput = document.getElementById('de')
+    var ateInput = document.getElementById('ate')
+
+    var canvas = this.document.getElementById("canvas")
+    if(canvas){
+      canvas.remove()
+    } else{
+      console.log("Não existe")
+    }
+
+    createChart(deInput.value, ateInput.value)
+  })
 })
