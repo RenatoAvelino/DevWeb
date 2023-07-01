@@ -96,8 +96,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.getElementById('BDownload').addEventListener('click', handleDownloadClick)
   document.getElementById('delete').addEventListener('click', handleDeleteClick)
+  document.getElementById('edit').addEventListener('click', handleEditClick)
 
   return Promise.all([userRequest, contractRequest])
+
+  function handleEditClick(){
+    window.location.href = "/settings-update"
+  }
 
   function handleDownloadClick() {
     const customerId = localStorage.getItem('customerId')

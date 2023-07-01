@@ -21,6 +21,10 @@ app.get('/settings', (req, res) => {
     res.render('pages/settings/SettingsPage')
 })
 
+app.get('/settings-update', (req, res) => {
+    res.render('pages/settings-update/SUpdatePage')
+})
+
 app.get('/reports', (req, res) => {
     res.render('pages/reports/ReportsPage')
 })
