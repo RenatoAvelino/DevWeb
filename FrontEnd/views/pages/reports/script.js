@@ -209,11 +209,16 @@ window.addEventListener('DOMContentLoaded', function () {
         _co = _co.toFixed(2)
         _carvao = _carvao.toFixed(2)
 
-        gerado.innerHTML = _KWH
-        dinheiro.innerHTML = _dinheiro
-        carvao.innerHTML = _carvao
-        arvore.innerHTML = _arvore
-        co.innerHTML = _co
+        var formatoBrasileiro = {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        }
+
+        gerado.innerHTML = parseFloat(_KWH).toLocaleString('pt-BR', formatoBrasileiro)
+        dinheiro.innerHTML = parseFloat(_dinheiro).toLocaleString('pt-BR', formatoBrasileiro)
+        carvao.innerHTML = parseFloat(_carvao).toLocaleString('pt-BR', formatoBrasileiro)
+        arvore.innerHTML = parseFloat(_arvore).toLocaleString('pt-BR', formatoBrasileiro)
+        co.innerHTML = parseFloat(_co).toLocaleString('pt-BR', formatoBrasileiro)
     }
     catch (error) {
       console.error('Ocorreu um erro:', error)
