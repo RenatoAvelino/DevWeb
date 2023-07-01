@@ -57,6 +57,9 @@ window.addEventListener('DOMContentLoaded', function () {
           var fromDate = moment(deInput, 'DD/MM/YYYY').add(3, 'hours')
           fromDate = fromDate.startOf('day').format('YYYY-MM-DD HH:mm')
           var toDate = moment(ateInput, 'DD/MM/YYYY').endOf('day').format('YYYY-MM-DD HH:mm')
+
+          fromDate = new Date(fromDate)
+          toDate = new Date(toDate)
         } else{
           var lastDate = data[data.length - 1]
           var toDate = moment(lastDate.DATE_TIME, 'YYYY-MM-DD HH:mm')
@@ -109,7 +112,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
       // Cria o gráfico usando Chart.js
       var ctx = canvas.getContext('2d')
-      var myChart = new Chart(ctx, {
+      new Chart(ctx, {
         type: 'line',
         data: {
           labels: labels,
