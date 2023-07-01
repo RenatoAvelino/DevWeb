@@ -29,7 +29,8 @@ const customerContract = db.define('customerContract', {
 
 customerContract.belongsTo(customerUser,{
     constraint: true,
-    foreignKey:'CustomerUserId'
+    foreignKey:'CustomerUserId',
+    onDelete: 'CASCADE'
 })
 
 module.exports = customerContract

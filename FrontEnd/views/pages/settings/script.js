@@ -16,37 +16,113 @@ function alterarImagens() {
   })
 }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const BaseUrl = 'http://localhost:8000'
+document.addEventListener('DOMContentLoaded', () => {
+  const BaseUrl = 'http://localhost:8000'
 
-    const name = document.getElementById("name")
-    const phone = document.getElementById("phone")
-    const cpf = document.getElementById("cpf")
-    const birthday = document.getElementById("birthday")
-    const address = document.getElementById("address")
-    const email = document.getElementById("email")
-    const bankAccount = document.getElementById("bankAccount")
-    const gender = document.getElementById("gender")
-    const language = document.getElementById("language")
-    const contractId = document.getElementById("contractId")
-    const contractStart = document.getElementById("contractStart")
-    const contractEnd = document.getElementById("contractEnd")
-  
-    // Obter o token JWT do armazenamento local
-    const token = localStorage.getItem("token")
-    const userId = localStorage.getItem("customerId")
+  const name = document.getElementById("name")
+  const phone = document.getElementById("phone")
+  const cpf = document.getElementById("cpf")
+  const birthday = document.getElementById("birthday")
+  const address = document.getElementById("address")
+  const email = document.getElementById("email")
+  const bankAccount = document.getElementById("bankAccount")
+  const gender = document.getElementById("gender")
+  const language = document.getElementById("language")
+  const contractId = document.getElementById("contractId")
+  const contractStart = document.getElementById("contractStart")
+  const contractEnd = document.getElementById("contractEnd")
 
-    const endpointUser = BaseUrl + "/customerUser-by-id/" + userId
-    const endpointContract = BaseUrl + "/customerContract-by-id/" + userId
+  // Obter o token JWT do armazenamento local
+  const token = localStorage.getItem("token")
+  const userId = localStorage.getItem("customerId")
 
-    const formatDate = (date) => {
-      return new Intl.DateTimeFormat('pt-BR').format(new Date(date))
+  const endpointUser = BaseUrl + "/customerUser-by-id/" + userId
+  const endpointContract = BaseUrl + "/customerContract-by-id/" + userId
+
+  const formatDate = (date) => {
+    return new Intl.DateTimeFormat('pt-BR').format(new Date(date))
+  }
+
+  const headers = {
+    Authorization: token
+  }
+  const userRequest = fetch(endpointUser, { headers })
+    .then(res => {
+      if (res.status === 200) {
+        return res.json()
+      } else {
+        throw new Error(`Status da requisição: ${res.status}`)
+      }
+    })
+    .then(dados => {
+      name.innerHTML = dados.name
+      phone.innerHTML = dados.phone
+      cpf.innerHTML = dados.cpf
+      if(dados.birthday){
+        birthday.innerHTML = formatDate(dados.birthday)
+      }
+      address.innerHTML = dados.address
+      email.innerHTML = dados.email
+      bankAccount.innerHTML = dados.bank_account
+      if(dados.gender){
+        gender.innerHTML = dados.gender
+      }
+      if(dados.language){
+        language.innerHTML = dados.language
+      }
+    })
+    .catch(error => {
+      console.error(`Erro ao carregar as informações do Usuário: ${error.message}`)
+      window.location.href = "/" // Redirecionar para a página "/"
+    })
+
+  const contractRequest = fetch(endpointContract, { headers })
+    .then(res => {
+      if (res.status === 200) {
+        return res.json()
+      } else {
+        throw new Error(`Status da requisição: ${res.status}`)
+      }
+    })
+    .then(dados => {
+      contractId.innerHTML = dados.id
+      contractStart.innerHTML = formatDate(dados.startDate)
+      contractEnd.innerHTML = formatDate(dados.endDate)
+    })
+    .catch(error => {
+      console.error(`Erro ao carregar as informações do Contrato: ${error.message}`)
+      window.location.href = "/main" // Redirecionar para a página "/"
+    })
+
+  document.getElementById('BDownload').addEventListener('click', handleDownloadClick)
+  document.getElementById('delete').addEventListener('click', handleDeleteClick)
+
+  return Promise.all([userRequest, contractRequest])
+
+  function handleDownloadClick() {
+    const customerId = localStorage.getItem('customerId')
+    if (customerId) {
+      const downloadLink = `/download/${customerId}`
+      window.location.href = downloadLink
+    } else {
+      console.log('customerId não encontrado no localStorage')
     }
+  }    
+
+  function handleDeleteClick() {
+    const BaseUrl = 'http://localhost:8000'
   
+    const endpoint = BaseUrl + '/customerUser-delete/'
+  
+    const token = localStorage.getItem('token')
     const headers = {
       Authorization: token
     }
-    const userRequest = fetch(endpointUser, { headers })
+  
+    fetch(endpoint, {
+      method: 'DELETE',
+      headers: headers
+    })
       .then(res => {
         if (res.status === 200) {
           return res.json()
@@ -54,57 +130,13 @@ function alterarImagens() {
           throw new Error(`Status da requisição: ${res.status}`)
         }
       })
-      .then(dados => {
-        name.innerHTML = dados.name
-        phone.innerHTML = dados.phone
-        cpf.innerHTML = dados.cpf
-        if(dados.birthday){
-          birthday.innerHTML = formatDate(dados.birthday)
-        }
-        address.innerHTML = dados.address
-        email.innerHTML = dados.email
-        bankAccount.innerHTML = dados.bank_account
-        if(dados.gender){
-          gender.innerHTML = dados.gender
-        }
-        if(dados.language){
-          language.innerHTML = dados.language
-        }
+      .then(data => {
+        console.log('Usuário deletado com sucesso')
+        window.location.href = "/"
       })
       .catch(error => {
-        console.error(`Erro ao carregar as informações do Usuário: ${error.message}`)
-        window.location.href = "/" // Redirecionar para a página "/"
+        console.error(`Erro ao deletar usuário: ${error.message}`)
       })
+  }
 
-    const contractRequest = fetch(endpointContract, { headers })
-      .then(res => {
-        if (res.status === 200) {
-          return res.json()
-        } else {
-          throw new Error(`Status da requisição: ${res.status}`)
-        }
-      })
-      .then(dados => {
-        contractId.innerHTML = dados.id
-        contractStart.innerHTML = formatDate(dados.startDate)
-        contractEnd.innerHTML = formatDate(dados.endDate)
-      })
-      .catch(error => {
-        console.error(`Erro ao carregar as informações do Contrato: ${error.message}`)
-        window.location.href = "/main" // Redirecionar para a página "/"
-      })
-
-    document.getElementById('BDownload').addEventListener('click', handleDownloadClick)
-
-    return Promise.all([userRequest, contractRequest])
-
-    function handleDownloadClick() {
-      const customerId = localStorage.getItem('customerId')
-      if (customerId) {
-        const downloadLink = `/download/${customerId}`
-        window.location.href = downloadLink
-      } else {
-        console.log('customerId não encontrado no localStorage')
-      }
-    }    
 })
