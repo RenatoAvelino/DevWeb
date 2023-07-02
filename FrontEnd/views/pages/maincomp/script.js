@@ -71,6 +71,38 @@ function addClientesToTable() {
                     localStorage.setItem('customerId', clienteId)
                     window.location.href = '/reports'
                 })
+                deleteBtn.addEventListener('click', function() {
+                    const clienteId = cliente.id
+                    localStorage.setItem('customerId', clienteId)
+                   
+                    const BaseUrl = 'http://localhost:8000'
+                  
+                    const endpoint = BaseUrl + '/customerUser-delete/' + clienteId
+                  
+                    const token = localStorage.getItem('token')
+                    const headers = {
+                      Authorization: token
+                    }
+                  
+                    fetch(endpoint, {
+                      method: 'DELETE',
+                      headers: headers
+                    })
+                      .then(res => {
+                        if (res.status === 200) {
+                          return res.json()
+                        } else {
+                          throw new Error(`Status da requisição: ${res.status}`)
+                        }
+                      })
+                      .then(data => {
+                        console.log('Usuário deletado com sucesso')
+                        location.reload()
+                      })
+                      .catch(error => {
+                        console.error(`Erro ao deletar usuário: ${error.message}`)
+                      })
+                })
             })
 
         })
