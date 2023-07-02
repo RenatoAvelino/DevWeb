@@ -116,8 +116,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function handleDeleteClick() {
     const BaseUrl = 'http://localhost:8000'
+    const userId = localStorage.getItem("customerId")
   
-    const endpoint = BaseUrl + '/customerUser-delete/'
+    const endpoint = BaseUrl + '/customerUser-delete/' + userId
   
     const token = localStorage.getItem('token')
     const headers = {

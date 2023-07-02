@@ -36,94 +36,87 @@ module.exports = function(app) {
     }
   })
 
-  app.patch('/customerUser-update/', verifyJWT, authenticate, async (req, res) => {
+  app.patch('/customerUser-update/:id', verifyJWT, authenticate, async (req, res) => {
     const body = req.body
-    const id = req.user.id
+    const { id } = req.params
     const category = req.user.category
-    if(category == "Customer"){
-      try {
-        var customerUser = await CustomerUser.findByPk(id, {
-          attributes: customerUserFields
-        })
-        if (!customerUser) {
-          res.status(404).send('Usuário não encontrada')
-          return
-        }
-        
-        //Campos Alteraveis
-        if (body.name) {
-          console.log("entrei")
-          customerUser.name = body.name
-        }
-        if (body.phone) {
-          customerUser.phone = body.phone
-        }
-        if (body.cpf) {
-          customerUser.cpf = body.cpf
-        }
-        if (body.birthday) {
-          customerUser.birthday = body.birthday
-        }
-        if (body.address) {
-          customerUser.address = body.address
-        }
-        if (body.email) {
-          customerUser.email = body.email
-        }
-        if (body.bankAccount) {
-          customerUser.bankAccount = body.bankAccount
-        }
-        if (body.gender) {
-          customerUser.gender = body.gender
-        }
-        if (body.language) {
-          customerUser.language = body.language
-        }
-  
-        await customerUser.save()
-        res.status(200).send(customerUser)
-      } catch (error) {
-        res.status(500).send(`Não foi possível atualizar o usuário: ${error.message}`)
+
+    try {
+      var customerUser = await CustomerUser.findByPk(id, {
+        attributes: customerUserFields
+      })
+      if (!customerUser) {
+        res.status(404).send('Usuário não encontrada')
+        return
       }
-    } else{
-      res.status(401).send("Esse endpoint é somente para customers")
+      
+      //Campos Alteraveis
+      if (body.name) {
+        customerUser.name = body.name
+      }
+      if (body.phone) {
+        customerUser.phone = body.phone
+      }
+      if (body.cpf) {
+        customerUser.cpf = body.cpf
+      }
+      if (body.birthday) {
+        customerUser.birthday = body.birthday
+      }
+      if (body.address) {
+        customerUser.address = body.address
+      }
+      if (body.email) {
+        customerUser.email = body.email
+      }
+      if (body.bankAccount) {
+        customerUser.bankAccount = body.bankAccount
+      }
+      if (body.gender) {
+        customerUser.gender = body.gender
+      }
+      if (body.language) {
+        customerUser.language = body.language
+      }
+
+      await customerUser.save()
+      res.status(200).send(customerUser)
+    } catch (error) {
+      res.status(500).send(`Não foi possível atualizar o usuário: ${error.message}`)
     }
 
     
   })
 
-  app.delete('/customerUser-delete/', verifyJWT, authenticate, async (req, res) => {
-    const id = req.user.id
+  app.delete('/customerUser-delete/:id', verifyJWT, authenticate, async (req, res) => {
+    const { id } = req.params
     const category = req.user.category
-    if(category == "Customer"){
-      try {
-      let customerUser = await CustomerUser.findByPk(id, {
-        attributes: customerUserFields
-      })
-      let customerContract = await CustomerContract.findOne({
-        where: {
-          CustomerUserId: id
-        }
-      })
-      let account = await Account.findOne({
-        where: {
-          CustomerUserId: id
-        }
-      })
-      if (!customerUser) {
-        res.status(404).send('Conta não encontrada')
-        return
+    
+    try {
+    let customerUser = await CustomerUser.findByPk(id, {
+      attributes: customerUserFields
+    })
+    let customerContract = await CustomerContract.findOne({
+      where: {
+        CustomerUserId: id
       }
-
-      await customerUser.destroy()
-      await customerContract.destroy()
-      await account.destroy()
-      res.status(200).send(customerUser)
-    } catch (error) {
-      res.status(500).send(`Não foi possível apagar a conta: ${error.message}`)
+    })
+    let account = await Account.findOne({
+      where: {
+        CustomerUserId: id
+      }
+    })
+    if (!customerUser) {
+      res.status(404).send('Conta não encontrada')
+      return
     }
-  } else{
-    res.status(401).send("Esse endpoint é somente para customers")
+
+    await customerUser.destroy()
+    await customerContract.destroy()
+    await account.destroy()
+    res.status(200).send(customerUser)
+  } catch (error) {
+    res.status(500).send(`Não foi possível apagar a conta: ${error.message}`)
   }
   })
 }

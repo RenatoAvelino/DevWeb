@@ -45,8 +45,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const BaseUrl = 'http://localhost:8000'
     const token = localStorage.getItem("token")
+    const userId = localStorage.getItem("customerId")
   
-    const endpoint = BaseUrl + "/customerUser-update/"
+    const endpoint = BaseUrl + "/customerUser-update/" + userId
 
     const headers = {
       'Content-Type': 'application/json',

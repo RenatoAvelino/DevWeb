@@ -31,7 +31,6 @@ function addClientesToTable() {
                 clienteIdCol.innerText = cliente.id
 
                 const updateLink = document.createElement("a")
-                //updateLink.href = "/settings"
                 updateLink.className = "btn-link"
                 updateLink.innerText = "Update"
                 const updateBtn = document.createElement("button")
@@ -45,7 +44,6 @@ function addClientesToTable() {
                 deleteBtn.innerText = "Delete"
 
                 const viewLink = document.createElement("a")
-                viewLink.href = "/reports"
                 viewLink.className = "btn-link"
                 viewLink.innerText = "View"
                 const viewBtn = document.createElement("button")
@@ -67,6 +65,11 @@ function addClientesToTable() {
                     const clienteId = cliente.id
                     localStorage.setItem('customerId', clienteId)
                     window.location.href = '/settings'
+                })
+                viewBtn.addEventListener('click', function() {
+                    const clienteId = cliente.id
+                    localStorage.setItem('customerId', clienteId)
+                    window.location.href = '/reports'
                 })
             })
 
