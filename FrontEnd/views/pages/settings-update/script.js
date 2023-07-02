@@ -43,6 +43,33 @@ document.addEventListener('DOMContentLoaded', () => {
       language
     };
     
-    console.log(JSON.stringify(data))
+    const BaseUrl = 'http://localhost:8000'
+    const token = localStorage.getItem("token")
+  
+    const endpoint = BaseUrl + "/customerUser-update/"
+
+    const headers = {
+      'Content-Type': 'application/json',
+      Authorization: token
+    }
+
+    fetch(endpoint, {
+      method: 'PATCH',
+      headers: headers,
+      body: JSON.stringify(data)
+    })
+    .then(response => {
+      if (response.status === 200) {
+        return response.json()
+      } else {
+        throw new Error(`Status da requisição: ${response.status}`);
+      }
+    })
+    .then(response => {
+      window.location.href = "/settings"
+    })
+    .catch(error => {
+      console.error(`Erro ao atualizar os dados do usuário: ${error.message}`);
+    });
   }
 })
