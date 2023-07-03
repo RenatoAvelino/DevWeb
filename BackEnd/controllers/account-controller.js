@@ -35,17 +35,26 @@ module.exports = function(app) {
       }
     })
 
-    app.post('/account-create', async (req, res) => {
+    app.post('/account-create/:id', verifyJWT, authorizeCompany, async (req, res) => {
       const body = req.body
+      const { id } = req.params
+      if(body.category == "Customer"){
+        var customerId = id
+        //var companyId = id
+        //var adminId = id
+      }else {
+        var customerId = null
+      }
+      
 
       try {
-        await Account.create({ 
+        const account = await Account.create({ 
           login: body.login,
           password: body.password, 
           category: body.category,
-          UserId: body.UserId
+          CustomerUserId: customerId
         })
-        res.status(200).json(`Conta criada com sucesso:`)
+        res.status(200).json(account)
       } catch (error) {
         res.status(500).send(`Erro ao criar conta: ${error.message}`)
       }

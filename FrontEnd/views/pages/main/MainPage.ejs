@@ -14,6 +14,8 @@
       =================ESPECIFICO=================
     //-->
     <link href="/pages/main/style/style.css" rel="stylesheet" type="text/css">
+    <script src="https://cdn.jsdelivr.net/npm/d3@7.8.5/dist/d3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
     <script src="/pages/main/script.js"></script>
     
     <title>Follow The Solar</title>
@@ -27,7 +29,7 @@
     <table class="BNTable">
       <tr>
           <td id="BNTitlesFirst">
-            <p>Geração Mensal(KWh)</p>
+            <p>Geração Total(KWh)</p>
           </td>
           <td>
             <p>Total economizado(R$)</p> 
@@ -40,10 +42,10 @@
           </td>
           <tr>
             <td id="BNTitlesFirst2">
-              <p class="BNNumbers">157,83 </p>
+              <p class="BNNumbers" id="Gerado"></p>
             </td>
             <td> 
-              <p class="BNNumbers">R$200,00</p>
+              <p class="BNNumbers" id="Dinheiro"></p>
             </td>
             <td>
               <p class="BNNumbers">2</p>

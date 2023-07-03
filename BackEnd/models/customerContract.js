@@ -19,7 +19,7 @@ const customerContract = db.define('customerContract', {
   },
   contractPath: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: true
   }
 }, {
   tableName: 'customerContracts', // Nome da tabela no banco de dados
@@ -29,7 +29,8 @@ const customerContract = db.define('customerContract', {
 
 customerContract.belongsTo(customerUser,{
     constraint: true,
-    foreignKey:'CustomerUserId'
+    foreignKey:'CustomerUserId',
+    onDelete: 'CASCADE'
 })
 
 module.exports = customerContract

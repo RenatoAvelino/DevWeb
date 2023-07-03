@@ -33,7 +33,8 @@ const Account = db.define('account', {
 
 Account.belongsTo(CustomerUser,{
     constraint: true,
-    foreignKey:'CustomerUserId'
+    foreignKey:'CustomerUserId',
+    onDelete: 'CASCADE'
 })
 
 // Função para criptografar a senha
