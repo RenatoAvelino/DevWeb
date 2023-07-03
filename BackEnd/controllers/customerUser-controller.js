@@ -1,6 +1,7 @@
 const CustomerUser = require('../models/customerUser')
 const CustomerContract = require('../models/customerContract')
 const Account = require('../models/account')
+const { Op } = require('sequelize')
 const { verifyJWT, authenticate, authorizeCompany, authorizeAdmin } = require('../middlewares')
 
 const customerUserFields = [
@@ -36,6 +37,24 @@ module.exports = function(app) {
     }
   })
 
+  app.get('/customerUser-search/:searchString', verifyJWT, authorizeCompany, async (req, res) => {
+    const { searchString } = req.params
+  
+    try {
+      const customerUsers = await CustomerUser.findAll({
+        where: {
+          name: {
+            [Op.like]: `%${searchString}%`
+          }
+        },
+        attributes: customerUserFields
+      })
+      res.status(200).send(customerUsers)
+    } catch (error) {
+      res.status(500).send(`Não foi possível obter os dados: ${error.message}`)
+    }
+  })
+  
   app.post('/customerUser-create', verifyJWT, authorizeCompany, async (req, res) => {
     const body = req.body
 
