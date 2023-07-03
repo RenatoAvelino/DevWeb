@@ -36,10 +36,9 @@ module.exports = function(app) {
     }
   })
 
-  app.post('/customerUser-create/:id', verifyJWT, authorizeCompany, async (req, res) => {
+  app.post('/customerUser-create', verifyJWT, authorizeCompany, async (req, res) => {
     const body = req.body
-    const { id } = req.params
-    
+
     if(body.birthday){
       var birthday = body.birthday
     } else{

@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
       bankAccount,
       gender,
       language
-    };
+    }
     
     const BaseUrl = 'http://localhost:8000'
     const token = localStorage.getItem("token")
@@ -63,14 +63,14 @@ document.addEventListener('DOMContentLoaded', () => {
       if (response.status === 200) {
         return response.json()
       } else {
-        throw new Error(`Status da requisição: ${response.status}`);
+        throw new Error(`Status da requisição: ${response.status}`)
       }
     })
     .then(response => {
       window.location.href = "/settings"
     })
     .catch(error => {
-      console.error(`Erro ao atualizar os dados do usuário: ${error.message}`);
-    });
+      console.error(`Erro ao atualizar os dados do usuário: ${error.message}`)
+    })
   }
 })
