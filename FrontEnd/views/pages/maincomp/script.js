@@ -18,7 +18,6 @@ function addClientesToTable() {
             }
         })
         .then(dados => {
-            console.log(dados)
             const clientes = dados
             const tabelaClientes = document.querySelector("#ClientTable table")
             clientes.forEach(cliente => {
@@ -113,5 +112,9 @@ function addClientesToTable() {
     }
 
     fetchClientes()
+
+    document.getElementById('NewCustomer').addEventListener('click', () => {
+      window.location.href = '/NewCustomer';
+    })
 }
 

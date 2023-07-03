@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <!--
+      =================PADRONIZADO=================
+    //-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" type="image/x-icon" href="/Imagens/sun32.ico">
+    <link href="/Styles/General.css" rel="stylesheet" type="text/css">
+    <script src="/Scripts/ScriptGeneral.js"></script>
+
+    <!--
+      =================ESPECIFICO=================
+    //-->
+    <link href="/pages/newcustomer/style/style.css" rel="stylesheet" type="text/css">
+    <script src="/pages/newcustomer/script.js"></script>
+    
+    <title>Configurações da Conta</title>
+  </head>
+  <body>
+  <%- include('../../partials/header') %>
+      
+    <table class="PITable">
+      <tr>
+          <td class="PITitlesFirst" colspan="2">
+            <h2>Informações Pessoais</h2>
+          </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Login: </strong>
+        </td>
+        <td>
+          <input type="text" id="username">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Senha: </strong>
+        </td>
+        <td>
+          <input type="text" id="password">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Nome completo: </strong>
+        </td>
+        <td>
+          <input type="text" id="name">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Número de Contato: </strong>
+        </td>
+        <td>
+          <input type="text" id="phone">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>CPF/CNPJ: </strong>
+        </td>
+        <td>
+          <input type="text" id="cpf">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Data de Nascimento: </strong>
+        </td>
+        <td>
+          <input type="text" id="birthday">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Endereço: </strong>
+        </td>
+        <td>
+          <input type="text" id="address">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Email: </strong>
+        </td>
+        <td>
+          <input type="text" id="email">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Dados bancários(Conta-Agência): </strong>
+        </td>
+        <td>
+          <input type="text" id="bankAccount">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Gênero: </strong>
+        </td>
+        <td>
+          <input type="text" id="gender">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Idioma de Preferência: </strong>
+        </td>
+        <td>
+          <input type="text" id="language">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Data de Inicio do Contrato: </strong>
+        </td>
+        <td>
+          <input type="text" id="contractStart">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Data de Fim do Contrato: </strong>
+        </td>
+        <td>
+          <input type="text" id="contractEnd">
+        </td>
+      </tr>  
+    </table>
+    <div id="Save">
+      <button type="button" id="BSave">Adcionar Cliente</button>
+    </div>
+  </div> 
+
+  <%- include('../../partials/footer') %>
+  </body>
+</html>

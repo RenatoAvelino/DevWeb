@@ -1,0 +1,120 @@
+/*-------------------------General----------------------------------*/
+:root{
+    --font-size: 17px;
+    --header-and-footer-color: black;
+    --background-color: rgba(255,245,238, 0.5);
+    --box-shadow-color: rgba(0, 0, 0, 0.3);
+    --background-color-body: rgb(255,245,238);
+    --background-opacity: 0.8;
+    --background-image: url("/Imagens/sun.png");
+	--button-color: #E99347;
+    --delete-button: #E84629;
+	--background-color-input: rgba(0, 0, 0, 0.3);
+
+}
+
+.dark-mode:root {
+    --font-size: 17px;
+    --header-and-footer-color: #E99347;
+    --background-color: rgba(0, 0, 0, 0.3);
+    --box-shadow-color: rgba(255,245,238, 0.5);
+    --background-color-body: black;
+    --background-opacity: 0.95;
+    --background-image: url("/Imagens/sun-white.png");
+	--background-color-input: rgb(255,245,238);
+}
+
+footer {  
+	position:relative; 
+	bottom: 0px; 
+	box-shadow: 0 0 20px var(--box-shadow-color);
+}
+
+/*-------------------------Personal-Info------------------------------*/
+#PersonalInfo{
+    width: 50%;
+    height: auto;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateY(-50%) translateX(-50%);
+}
+
+.PITable {
+	width: 100%;
+	border-collapse: collapse;
+  	border-spacing: 0px;
+	margin: 0 auto;
+	padding: 20px;
+	box-shadow: 0 0 10px var(--box-shadow-color);
+	background-color: var(--background-color);
+	border-radius: 15px;
+  	opacity: var(--background-opacity);
+  	backdrop-filter: blur(5px);
+	text-align: left;
+	table-layout: fixed;
+}
+
+.PITable td {
+	border: 1px solid var(--box-shadow-color);
+	padding: 10px; 
+	width: 50%; 
+  }
+
+.PITitlesFirst{	
+    border-top: 1px solid var(--box-shadow-color);
+    text-align: center;
+}
+
+.button-wrapper {
+	width: 50px;
+	height: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 15px;
+	background-color: var(--button-color);
+	color: var(--background-color-body);
+	cursor: pointer;
+  }
+
+  #Save {
+	width: 40%;
+	height: 40px;
+	margin-top: 5px;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	left: 30%;
+	border-radius: 15px;
+	box-shadow: 0 2px 4px var(--box-shadow-color);
+	background-color: var(--button-color);
+	cursor: pointer;
+  }
+
+  #BSave{
+	width: auto;
+	background-color: var(--button-color);
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	border: none;
+	color: var(--background-color-body);
+	font-size: 15px;
+	cursor: pointer;
+  }
+
+  input{ 
+	color: black; 
+	background-color: var(--background-color-input);
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid var(--box-shadow-colory);
+	box-sizing: border-box;
+	border-radius: 15px;
+}
+
+  
