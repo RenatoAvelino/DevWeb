@@ -31,4 +31,26 @@ module.exports = function(app) {
       res.status(500).send(`Não foi possivel pegar os dados: ${error.message}`)
     }
   })
+
+  app.post('/contract-create/:id', verifyJWT, authorizeCompany, async (req, res) => {
+    const body = req.body
+    const { id } = req.params
+    if(body.contractPath){
+      var contractPath = body.contractPath
+    } else{
+      var contractPath = null
+    }
+
+    try {
+      const customerContract = await CustomerContract.create({ 
+        startDate: body.startDate,
+        endDate: body.endDate,
+        contractPath: contractPath,
+        CustomerUserId: id
+      })
+      res.status(200).json(customerContract)
+    } catch (error) {
+      res.status(500).send(`Erro ao criar contrato: ${error.message}`)
+    }
+  })
 }

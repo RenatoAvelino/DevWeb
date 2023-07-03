@@ -36,6 +36,44 @@ module.exports = function(app) {
     }
   })
 
+  app.post('/customerUser-create/:id', verifyJWT, authorizeCompany, async (req, res) => {
+    const body = req.body
+    const { id } = req.params
+    
+    if(body.birthday){
+      var birthday = body.birthday
+    } else{
+      var birthday = null
+    }
+    if(body.gender){
+      var gender = body.gender
+    } else{
+      var gender = null
+    }
+    if(body.language){
+      var language = body.language
+    } else{
+      var language = null
+    }
+
+    try {
+      const customerUser = await CustomerUser.create({ 
+        name:body.name,
+        phone:body.phone,
+        cpf:body.cpf,
+        birthday:birthday,
+        address:body.address,
+        email:body.email,
+        bankAccount:body.bankAccount,
+        gender:gender,
+        language:language
+      })
+      res.status(200).json(customerUser)
+    } catch (error) {
+      res.status(500).send(`Erro ao criar cliente: ${error.message}`)
+    }
+  })
+
   app.patch('/customerUser-update/:id', verifyJWT, authenticate, async (req, res) => {
     const body = req.body
     const { id } = req.params

@@ -19,7 +19,7 @@ const customerContract = db.define('customerContract', {
   },
   contractPath: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: true
   }
 }, {
   tableName: 'customerContracts', // Nome da tabela no banco de dados
